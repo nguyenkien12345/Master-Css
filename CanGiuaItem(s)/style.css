@@ -1,0 +1,51 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* .box{
+    background-color: teal;
+    height: 100px;
+    position: relative;
+} */
+
+/* h3{ */
+    /* position: absolute; */
+    /* bottom: 50%;  */
+    /*Nghĩa là 50px (Đây là 50% tỉ lệ dựa vào thẻ chứa nó (.box))*/
+    /* right: 50%;  */
+    /*Nghĩa là 50px (Đây là 50% tỉ lệ dựa vào thẻ chứa nó (.box))*/
+    /* transform: translateY(50%) translateX(50%);  */
+    /*50% này là 50% của chính nó (h3). Có thể viết ngắn hơn là translate(50%, 50%) */
+    /*Nếu dùng top left thì translateY(-50%) translateX(-50%)*/
+/* } */
+
+/* Tạo ra 1 thanh border-left bên cạnh chữ CENTER ME */
+.box{
+    background-color: teal;
+    height: 100px;
+    display: flex;
+}
+
+h3{
+    margin: auto;
+    position: relative;
+}
+/* Lưu ý không dùng border-left ngay bên trong thẻ h3 bởi vì nếu ta thay đổi kích thước (vd như height của border-left) thì thẻ h3 cũng sẽ bị
+   ảnh hưởng
+*/
+
+/* Để sử dụng các lớp giả như before hay after thì phải có position */
+h3::after{
+    content: "";
+    position: absolute;
+    border-left: 3px solid yellow;
+    left: -10px;
+    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Lưu ý: Khi dùng border-left ở đây thì khi thay đổi kích thước (vd như height của border-left) thì sẽ không ảnh hưởng đến chiều cao của thẻ h3
+*/

@@ -1,0 +1,61 @@
+html{
+    font-size: 62.5%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #131933;
+}
+
+.loading{
+    width: 7rem;
+    height: 7rem;
+    margin: 50px auto;
+    position: relative;
+}
+
+.loading div{
+    /* phủ toàn bộ thằng cha */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+
+    /* Cộng dồn 45deg lên */
+    transform: rotate(calc(var(--value) * 45deg));
+}
+
+.loading div::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    border: 3px solid #00aefd;
+    border-radius: 5rem;
+    filter: hue-rotate(calc(var(--value) * 45deg));
+    animation: loading 1s infinite;
+    animation-delay: calc(var(--value) * 0.125s);
+    /* animation-timing-function: linear; */
+}
+
+@keyframes loading {
+    to{
+        transform: scale(0);
+    }
+}
+
+/* 1 circle là 360deg -> 8 phần tử -> 360/8 = 45 deg -> Tức là mỗi phần tử tương ứng 45deg ->
+ phần tử thứ nhất: 45deg -> Các phần tử sau cứ lần lươt + 45deg lên -> 45,90,135,180,225,270,315,360,*/
+
+ /* filter: hue-rotate(); nó sẽ đổi màu gốc theo độ -> 8 thằng khác màu nhau*/
+
+ /* infinite: chạy vô tận */
+
+ /* animation delay = duration(1s) / 8 = 0.125s */

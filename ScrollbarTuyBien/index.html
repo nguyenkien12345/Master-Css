@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tùy biến Scrollbar</title>
+</head>
+
+<style>
+    /* Practice 1 */
+    /* Ở đây mình xác định là tùy biến thanh scrollbar của thẻ body */
+    body {
+        height: 500vh;
+    }
+
+    /* Tùy biến độ rộng của thanh scrollbar */
+    body::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Tùy biến màu sắc của thanh scrollbar */
+    body::-webkit-scrollbar-track {
+        background-color: #ccc;
+        border-radius: 100rem;
+    }
+
+    /* Tùy biến scrollbar khi ta click vào kéo */
+    body::-webkit-scrollbar-thumb {
+        background-image: linear-gradient(to bottom, #ffa400, #00aefd);
+        border-radius: 100rem;
+    }
+
+    /* Practice 2 */
+    /* Ở đây mình xác định là tùy biến thanh scrollbar của thẻ body */
+    .boxed {
+        height: 200px;
+        width: 200px;
+        overflow-y: auto;
+    }
+
+    /* Tùy biến độ rộng của thanh scrollbar */
+    .boxed::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    /* Tùy biến màu sắc của thanh scrollbar */
+    .boxed::-webkit-scrollbar-track {
+        background-color: rgb(212, 10, 10);
+    }
+
+    /* Tùy biến scrollbar khi ta click vào kéo */
+    .boxed::-webkit-scrollbar-thumb {
+        background-image: linear-gradient(to bottom, #ffa400, #00aefd);
+        border-radius: 100rem;
+    }
+</style>
+
+<body>
+    <div class="boxed">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores quam ex nam officiis consequatur laboriosam
+        ullam quia eaque dicta. Fuga maiores praesentium eveniet distinctio ut incidunt quaerat maxime nulla quibusdam!
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores quam ex nam officiis consequatur laboriosam
+        ullam quia eaque dicta. Fuga maiores praesentium eveniet distinctio ut incidunt quaerat maxime nulla quibusdam!
+    </div>
+</body>
+
+</html>

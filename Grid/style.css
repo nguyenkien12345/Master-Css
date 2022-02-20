@@ -1,0 +1,24 @@
+.wrapper{
+    display: grid; /* Tạo ra 1 cái lưới */
+    grid-template-columns: 70% 30%; /* Tạo ra 2 cột: 1 cột 70 1 cột 30. Khi ta chia ra 2 cột là tạo ra 3 đường VD: | | | kiểu như hcn bị cắt đôi*/
+}
+
+.header{
+    grid-column: 1/3;
+}
+
+.main{
+
+}
+
+.sidebar{
+
+}
+
+.footer{
+    grid-column: 1/3;
+}
+
+/* Lý thuyết */
+/* grid-column-start: 1; --> 2 dòng này có thể viết tắt là grid-column: 1/3 (nghĩa là kéo dài từ cột đầu đến cột cuối vì ở đây ta chỉ có 3 cột);
+   grid-column-end: 3; */

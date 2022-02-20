@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="px">This Text Is 32px</div>
+
+    <div class="em">This Text Is 2em</div>
+    <!-- /* 1 em thì sẽ bằng chính kích thước font của cái thằng cha chứa nó. Mà font hiện tại của body (cha) đang là 16px vậy 2 em là 32px */ -->
+
+
+    <div class="rem">
+        This Text Is 2 rem
+        <!-- /* 2 rem chính là 2 lần kích thước của thằng root của trình duyệt (tức là thằng html) mà root là 16px vậy 2 rem là 32px*/ -->
+        <p class="em">This Text Is 2 em</p>
+        <!-- /* 1 em thì sẽ bằng chính kích thước font của cái thằng cha chứa nó. Mà font hiện tại của class="rem" (cha) đang là 32px (2rem) vậy 2 em là 64px */ -->
+        <p class="rem">This Text Is 2 rem</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+table{
+    width: 100%;
+}
+
+table th, table td {
+    padding: 15px 30px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+table th{
+    background-color: #f1f7fd;
+    color: #364d67;
+    font-weight: 600;
+}
+
+table td{
+    background: white;
+}
+
+table tbody tr{
+    border-top: 1px solid #f0f4f8;
+}
+
+table .user{
+    display: flex;
+    align-items: center;
+    gap: 0 20px; /* gap: khoảng cách hàng, khoảng cách cột */
+}
+
+table .user img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100rem;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.sticky-table{
+    overflow: auto;
+    border: 1px solid #f0f4f8;
+}
+
+.sticky-table thead th:first-child,
+.sticky-table tbody td:first-child{
+    position: sticky;
+    left: 0;
+}
+
+.sticky-table tbody td:first-child span{
+    padding-right: 50px;
+}
+
+/* .sticky-table{
+    position: relative;
+}
+
+.sticky-table:before{
+    content: "";
+    height: 100%;
+    width: 1px;
+    background-color: red;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+} */
+
+/* 
++ flex-shrink: 0 => Các bạn thấy chứ các phần tử nó sẽ co lại khi chúng ta resize trình duyệt nhỏ xuống. Nhưng nếu các  bạn set cho nó flex-shrink: 0 thì nó sẽ không co giãn và lúc này nó sẽ lấy giá trị của thuộc tính width
++ white-space: nowrap => Data không bao giờ rớt xuống hàng mà luôn nằm trên 1 hàng 
+*/

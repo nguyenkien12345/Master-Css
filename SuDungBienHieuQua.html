@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sử dụng biến hiệu quả</title>
+</head>
+
+<style>
+    /*         
+    Các biến này chỉ sử dụng được trong phạm vi của class card mà thôi. Nếu ngoài phạm vi class card thì nó không chạy
+    Lưu ý: Chỉ áp dụng với scss
+    --card-boder: 1px solid red;
+    --card-image-height: 200px;
+    --card-content-padding: 10px;
+    --card-title-color: blue;
+    */
+    .card {
+        --card-boder: 1px solid red;
+        --card-image-height: 200px;
+        --card-content-padding: 10px;
+        --card-title-color: blue;
+        width: 300px;
+        margin: 50px auto;
+        border: var(--card-boder);
+    }
+
+    .card-image {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+        height: var(--card-image-height);
+    }
+
+    .card-content {
+        padding: var(--card-content-padding);
+    }
+
+    .card-title {
+        font-family: 'Times New Roman', Times, serif;
+        color: var(--card-title-color);
+    }
+
+    @media screen and(max-width: 767px) {
+
+        /* Thay vì phải truy cập vào từng class để thay đổi css thì ta chỉ cần vào class cha là card là đã có thể thay đổi được các biến của class con luôn */
+        .card {
+            --card-boder: 1px solid yellow;
+            --card-image-height: 150px;
+            --card-content-padding: 20px;
+            --card-title-color: #20E3B2;
+        }
+    }
+</style>
+
+<body>
+    <div class="card">
+        <img src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t39.30808-6/273637558_1538808289837870_4988641396035699733_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=VO1u2iUErp4AX8wci_t&_nc_ht=scontent.fsgn2-2.fna&oh=00_AT_sqwdOkTq_hyC82oG0VO3jNuQvI5JUnSNBJCUTO3xzmA&oe=6215B689"
+            alt="Girl" class="card-image">
+        <div class="card-content">
+            <h3 class="card-title">Nguyễn Trung Kiên Và Liverpool</h3>
+        </div>
+    </div>
+</body>
+
+</html>

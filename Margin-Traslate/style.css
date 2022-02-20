@@ -1,0 +1,88 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+body,
+input,
+button,
+textarea,
+select {
+  outline: none;
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+}
+input {
+  line-height: normal;
+}
+button {
+  cursor: pointer;
+}
+body {
+  padding: 20px;
+}
+
+/* .boxed{
+    width: 50px;
+    height: 50px;
+    background-color: black;
+}
+
+.boxed:last-of-type{
+    background-color: aqua;
+} */
+
+/* .boxed-1{
+    margin-bottom: -20px;  
+} */
+/* Lúc này boxed-2 nó sẽ dịch ngược lên (được đẩy lên) 20px nằm đè lên boxed-1 */
+
+/* .boxed-2{
+    transform: translateY(-20px); 
+} */
+
+/* .boxed-1{
+    margin-top: 50px;
+    transform:translateY(50px) ;
+} */
+
+.avatars{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatars span{
+    margin-left: 10px;
+}
+
+.avartar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    object-fit: cover;
+    border: 1px solid red;
+    box-shadow: 0 0 0 2px white;
+}
+
+/* Lấy tất cả thẻ avartar trừ thẻ avartar đầu tiên */
+.avartar:not(:first-child){
+    margin-left: -10px;
+}
+
+.avartar-number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #999;
+}

@@ -1,0 +1,84 @@
+body, html{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #666;
+}
+
+.header{
+    background-color: #fff;
+}
+
+.header-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1024px;
+    margin: 0px auto;
+    position: relative;
+}
+
+.logo{
+    max-width: 2rem;
+}
+
+.logo img{
+    width: 8rem;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+}
+
+ul li{
+    list-style: none;
+}
+
+.menu_item{
+    margin: 0 1rem;
+}
+
+/* Khi hover nó sẽ trỏ đến menu_child */
+.menu_item:hover .menu_child{
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu_child{
+    position: absolute;
+    /* Muốn nó nằm sát dưới thằng cha thì để top: 100% */
+    top: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s linear;
+}
+
+.menu_child-item{
+    width: 25%;
+}
+
+.menu_child-item h4{
+    color: white;
+    font-size: 1.4rem;
+    padding: 2rem;
+    background-color: #00aefd;
+}
+
+.menu_child-list li{
+    padding: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.menu_link{
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.4rem;
+    display: block;
+    padding: 2rem;
+}
+
+/* transition không áp dụng cho display: none */

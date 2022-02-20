@@ -1,0 +1,69 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card{
+    width: 250px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 2px rgba(0,0,0,.4);
+}
+
+.user-info{
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 10px;
+}
+
+.name{
+    margin-left: 10px;
+    width: 100%;
+}
+
+.loading .logo, .loading .name, .loading .content{
+    position: relative;
+    overflow: hidden;
+}
+
+/* Skeleton Loading */
+/* Mặc định after luôn luôn nằm phía sau before (đồng nghĩa after sẽ luôn nằm đè lên before) */
+
+.loading .logo::before, .loading .name::before, .loading .content::before{
+    background-color: #ddd;
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+}
+
+.loading .logo::after, .loading .name::after, .loading .content::after{
+    /* background-color: #fff; */
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    /*#ddd: Điểm màu bắt đầu, #fff 50%: Điểm màu nằm giữa, #ddd: Điểm màu nằm cuối */
+    background: linear-gradient(to right, #ddd, #fff 50%, #ddd);
+    animation: skeletonLoading 2s infinite linear alternate;
+}
+
+@keyframes skeletonLoading {
+    from{
+        left: -50%;
+    }
+    to{
+        left: 50%;
+    }
+}

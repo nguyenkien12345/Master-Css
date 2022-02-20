@@ -1,0 +1,179 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body,
+input,
+button,
+textarea,
+select {
+  outline: none;
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+}
+
+input {
+  line-height: normal;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  padding: 20px;
+}
+
+.cards {
+  /* Đặt biến */
+  --spacing: 30px;
+  --columns: 2;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(-1 * var(--spacing)); /* Vì 4 card đều margin left 30px. Mà ta không muốn dùng not:first-child thì ta sẽ cho thẻ cha của nó là âm 30px để bù cho cái thẻ card đầu tiên */
+}
+
+.card {
+  border-radius: 20px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: calc(calc(100 / var(--columns)) -  var(--spacing)); /* 4 card mỗi cột 25% thì cộng lại sẽ ra 100% mà cộng thêm margin left 30% thì sẽ ra là 130% làm cột rớt xuống dòng tiếp theo. Vì vậy ta phải dùng calc trừ khoảng trống đó đi */
+  margin-left: var(--spacing);
+  margin-bottom: var(--spacing);
+  /* Nâng cao */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  /* Nâng cao */
+  flex-shrink: 0; /* Nó sẽ không cho phép phần tử này co lại. Phần tử này sẽ luôn luôn nằm cố định theo cách ta set */
+}
+
+.card-content {
+  /* Nâng cao */
+  flex: 1; /* card-cotent sẽ luôn bằng nhau */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-top {
+  padding: 25px;
+  /* Nâng cao */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-title {
+  font-weight: 500;
+  margin-bottom: 25px;
+  /* Tự động rớt xuống hàng nếu nd quá dài */
+  word-break: break-all; 
+  /* Giới hạn 3 dòng */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;;
+  
+}
+
+.card-user {
+  display: flex;
+  align-items: center;
+  /* Nâng cao */
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.card-user-avatar {
+ width: 40px;
+ height: 40px;
+ border-radius: 100rem;
+ object-fit: cover;
+ flex-shrink: 0; /* Ảnh sẽ luôn luôn cố định ở kích thước ta set và không bị scale lại */
+}
+
+.card-user-info {
+  padding-left: 20px;
+  flex: 1 /* Lấy hết không gian khả dụng còn lại */
+}
+
+.card-user-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.card-user-name {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.card-user-top ion-icon {
+  color: #20E3B2;
+  margin-left: 5px;
+}
+
+.card-user-game {
+  font-weight: 300;
+  color: #999;
+  font-size: 13px;
+}
+
+.card-bottom {
+  padding: 25px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Nâng cao */
+  margin-top: auto; /*Nó sẽ đẩy hết khoảng trống ở phía trên. Để nó dồn xuống dưới cùng*/
+  flex-shrink: 0;  /* Cố định ở chiều cao đó */
+}
+
+.card-live {
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+  border-radius: 10px;
+  background-color: #ff6651;
+}
+
+.card-live span{
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.card-watching {
+  font-size: 13px;
+  color: #999;
+}
+
+/* 
+  Các vấn đề cần xử lý
+ - 1: Content không bằng nhau
+ - 2: Những cái nội dung bên trong không đều nhau
+*/

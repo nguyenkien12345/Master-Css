@@ -1,0 +1,106 @@
+/* Lưu ý áp dụng transition cho phần tử trước khi hover vào chứ không phải sau khi hover vào */
+/* DEMO 1 */
+.button {
+  display: inline-block;
+  padding: 15px 30px;
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+.button::before {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 0;
+  width: 2px;
+  background-color: #6a5af9;
+  z-index: -1;
+  transition: height 0.25s linear, width 0.25s ease-in-out 0.25s;
+  /* thuộc tính ta muốn áp dụng transition, tổng thời gian chạy của transition đó, hiệu ứng chạy transition, thời gian delay trước khi chạy transition*/
+}
+
+/* Ở đây mình muốn áp dụng transition cho before bởi vì cái thay đổi ở đây là width 100% và height 100% của before */
+.button:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+/* DEMO 2 */
+.btn {
+  display: inline-block;
+  padding: 15px 35px;
+  margin: 15px;
+  background-color: transparent;
+  color: black;
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+.btn::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background-color: #6a5af9;
+  z-index: -1;
+  transition: width 0.25s linear 1s;
+}
+
+.btn span {
+  position: absolute;
+  background-color: #6a5af9;
+  display: block;
+  transition: all 0.25s linear;
+}
+
+.btn span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+}
+
+.btn span:nth-child(2) {
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 0;
+  transition-delay: 0.25s;
+}
+
+.btn span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  transition-delay: 0.5s;
+}
+
+.btn span:nth-child(4) {
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  transition-delay: 0.75s;
+}
+
+.btn:hover span:nth-child(odd) {
+  width: 100%;
+}
+
+.btn:hover span:nth-child(even) {
+  height: 100%;
+}
+
+.btn:hover::before {
+  width: 100%;
+}

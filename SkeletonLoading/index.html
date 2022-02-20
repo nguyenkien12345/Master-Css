@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Skeleton Loading</title>
+</head>
+
+<body>
+    <!-- .card>.user-info>.logo+.name^.content -->
+    <div class="card loading">
+        <div class="user-info">
+            <div class="logo">
+                <img src="https://picsum.photos/50/50" alt="logo">
+            </div>
+            <div class="name">
+                Nguyễn Trung Kiên
+            </div>
+        </div>
+
+        <div class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, dolore. Excepturi suscipit expedita labore
+            magni tempora sed nihil nam, voluptatem minus quis in aliquid placeat nobis. Dolor reiciendis recusandae
+            ullam.
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementsByClassName('card')[0].classList.remove('loading');
+        }, 2000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list__item {
+    width: 10rem;
+    height: 10rem;
+    background-color: red;
+}
+
+.list__item:last-child {
+    align-self: center;
+    height: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+    .list {
+        flex-direction: columns;
+    }
+
+    .list__item {
+        width: 100%;
+        margin-bottom: 1rem;
+        order: 1;
+    }
+
+    .list__item:last-child {
+        order: 0;
+    }
+}
+
+/* Tip tricks */
+
+/* .list__item:last-child {
+    margin-left: auto;
+} */
+
+.search {
+    display: flex;
+    width: 100%;
+}
+
+input {
+    flex-grow: 1;
+}
+
+button {
+    padding: 1.5 rem;
+    background-color: red;
+    color: white;
+    border-radius: 5rem;
+    flex-grow: 1;
+}
+
+.user {
+    display: flex;
+}
+
+.image {
+    width: 200px;
+    flex-shrink: 0;
+}
+
+/* .user p {
+    width: calc(100% - 200px);
+} */

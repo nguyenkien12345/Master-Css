@@ -1,0 +1,78 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body,
+input,
+button,
+textarea,
+select {
+  outline: none;
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+}
+
+input {
+  line-height: normal;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+    padding: 20px;
+}
+
+.form-input {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 0px 20px;
+    width: 100%;
+    height: 50px;
+    transition: 0.25s ease;
+}
+
+.form-input:focus {
+    border-color: #6a5af9;
+}
+
+.form-field {
+  position: relative;
+}
+
+.form-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 21px;  /* Vì ban đầu ta padding: 20px cho body. Nên ở đây ta cũng phải padding: 20px mà do border 1px nữa nên ở đây ta phải để là 21 để con trỏ chuột về lại ban đầu */       
+  user-select: none; /* Không cho người dùng chọn chữ name */
+  color: #999;
+  pointer-events: none; /* Khi nhấn vào ô input nếu nhấn vào chữ name sẽ không focus được. Nên cho chữ name bị chìm để khi nhấn vào ô input thì sẽ focus được. */
+}
+
+/* Nếu là thẻ input được focus thì ta sẽ trỏ đến label */
+.form-input:not(:placeholder-shown) + .form-label,.form-input:focus + .form-label {
+  top: 0px;
+  padding: 0 10px;
+  display: inline-block; /* Chuyển thành thẻ inline block để padding được */
+  background-color: white; /* trùng với màu nền body */
+  color: #6a5af9;
+  transition: 0.25s ease;
+}
+
+/* .form-input:not(:placeholder-shown) + .form-label => Khi ta đã nhập chữ vào input rồi thì khi thoát ko focus input thì chữ name sẽ không bị trở lại */

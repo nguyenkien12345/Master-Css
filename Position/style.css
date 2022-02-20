@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    background-color: #affffb;
+    height: 50vh;
+    padding: 20px;
+    position: relative;
+}
+
+.block{
+    height: 50px;
+}
+
+.block-1{
+    background-color: yellow;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.block-2{
+    background-color: purple;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.block-3{
+    background-color: #ff814f;
+}
+
+/* 
+    Nếu không set position với 1 trong 4 thuộc tính absolute, relative, sticky, fixed  thì các thuộc tính như top left right bottom z-index
+   sẽ không có giá trị đối với 1 static element.
+*/

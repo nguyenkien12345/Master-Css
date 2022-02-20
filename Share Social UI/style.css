@@ -1,0 +1,118 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+ul li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.share{
+    width: 200px;
+    border: 1px solid #eee;
+    margin: 50px auto;
+}
+
+.top{
+    text-align: center;
+    font-size: 25px;
+    color: black;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+}
+
+.bottom a{
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 15px;
+    color: #ccc;
+}
+
+.content ul{
+    display: flex;
+    flex-flow: row wrap;
+    /* Thuộc tính flex-flow sử dụng để gộp chung hai thuộc tính flex-direction và flex-wrap. */
+    /* thuộc tính flex-wrap cho phép item tự động xuống dòng khi kích thước container thay đổi */
+}
+
+.content ul li{
+    width: 99px;
+    height: 99px;
+    border-bottom: 1px solid #eee;
+}
+
+.content ul li:nth-of-type(even){
+    /* Chỉ áp dụng cho item có vị trí chẵn */
+    border-left: 1px solid #eee;
+}
+
+.content ul li a{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.content ul li span{
+    font-size: 10px;
+    color: #ccc;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    writing-mode: vertical-rl; 
+    /*writing-mode có thể thay đổi sự căn chỉnh của văn bản hiển thị từ trên xuống dưới hoặc từ trái sang phải hoặc từ phải sang trái */
+    transform: rotate(180deg);
+}
+
+.content ul li.twitter i{
+    color: #19cbe6;
+}
+
+.content ul li.facebook i{
+    color: #606ee2;
+}
+
+.content ul li.google i{
+    color: #ff4a5e;
+}
+
+.content ul li.mail i{
+    color: #ffc034;
+}
+
+.content ul li.twitter:hover a{
+    background-color: #19cbe6;
+}
+
+.content ul li.facebook:hover a{
+    background-color: #606ee2;
+}
+
+.content ul li.google:hover a{
+    background-color: #ff4a5e;
+}
+
+.content ul li.mail:hover a{
+    background-color: #ffc034;
+}
+
+.content ul li a:hover i,
+.content ul li a:hover span
+{
+    color: white;
+}
+
+.content ul li *{
+    transition: color 0.2s linear, background-color 0.2s linear;
+}

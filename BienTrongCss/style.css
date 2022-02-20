@@ -1,0 +1,33 @@
+/* global variable */
+:root {
+    --primary: #6a5af9;
+    --secondary: yellow;
+    --boxed-color: black;
+}
+
+/* local variable */
+.list1 {
+    --primary: red;
+    --secondary: blue;
+} 
+
+.item1 {
+    font-size: 40px;
+    /* fallback color: Nếu cái biến đầu (1) ta lấy không có thì nó sẽ lấy biến sau (2) */
+    color: var(--primary,orange);
+}
+
+.item2 {
+    font-size: 40px;
+    /* fallback color: Nếu cái biến đầu (1) ta lấy không có thì nó sẽ lấy biến sau (2) */
+    color: var(--primary,orange);
+}
+
+/* local variable ghi đè global variable */
+
+.boxed {
+    width: 200px;
+    height: 200px;
+     /* fallback color: Nếu cái biến đầu (1) ta lấy không có thì nó sẽ lấy biến sau (2) */
+    background-color: var(--boxed-color,orange);
+}

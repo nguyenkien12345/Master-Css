@@ -1,0 +1,110 @@
+html{
+    font-size: 62.5%; /* 10 rem */
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plant-details{
+    width: 80rem;
+    min-height: 60rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #aedba5;
+    padding: 5rem;
+}
+
+.plant-details_container{
+    background-color: #fff;
+    box-shadow: 0 0 4px 4px rgba(0,0,0,0.25);
+}
+
+.plant-details_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.plant-details_back{
+    color: #999;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.plant-details_back span{
+    margin-left: 1.5rem;
+}
+
+.plant-details_like{
+    color: #999;
+    font-size: 2rem;
+}
+
+.plant-details_content{
+    display: flex;
+}
+
+/* Truy cập đến 2 thẻ con (phải liền kề với plant-details_content ) */
+.plant-details_content > div{
+    padding: 40px;
+}
+
+.plant-details_image{
+    width: 40%;
+}
+
+.plant-details_info{
+    width: 60%;
+    border-left: 1px solid #eee;
+}
+
+.plant-details_title{
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: black;
+    margin-bottom: 0.5rem;
+}
+
+.plant-details_category{
+    text-transform: uppercase;
+    color: #999;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.plant-details_price{
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.plant-details_description{
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #999;
+    margin-bottom: 2rem;
+}
+
+.button{
+    outline: none;
+    cursor: pointer;
+    color:#999;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+    padding: 1rem 3rem;
+    min-width: 15rem;
+    font-size: 1.4rem;
+}
+
+.plant-details_button:first-of-type{
+    margin-right: 1rem;
+}

@@ -1,0 +1,42 @@
+body{
+    background-color: #f3f3f3;
+    display: flex; /* giúp sắp xếp, bố cục các thành phần khối (block) một cách dễ dàng, linh hoạt */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full màn hình */
+}
+
+.switch{
+    -webkit-appearance: none; /* Vật thể sẽ biến mất. Nói đúng hơn là trở về trạng thái nguyên thuỷ */
+    appearance: none; /* Vật thể sẽ biến mất. Nói đúng hơn là trở về trạng thái nguyên thuỷ */
+    width: 84px;
+    height: 44px;
+    background-color: #c6c6c6;
+    border-radius: 30px;
+    border: 1px solid gray;
+    outline: none; /* Làm ẩn đi cái đường viền vuông bao bọc bên ngoài */
+    position: relative; /*Tự lấy bản thân làm vị trí tuyệt đối */
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.switch:checked{
+    background-color: mediumaquamarine;
+    border: mediumaquamarine;
+}
+
+.switch::before{
+    content: '';
+    width: 42px;
+    height: 42px;
+    position: absolute; /* Căn chỉnh theo thằng cha của nó */
+    background-color: #fff;
+    border-radius: 50%;
+    left: 0px;
+    top: 0px;
+    transition: 200ms;
+}
+
+.switch:checked:before{ /* Cái class này khi mà được bật lên thì nó sẽ tác động vào phần tử trong nó */
+    left: 42px; /* Dịch chuyển qua bên trái */
+}

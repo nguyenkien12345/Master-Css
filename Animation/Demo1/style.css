@@ -1,0 +1,23 @@
+.ring {
+  width: 50px;
+  height: 50px;
+  border-radius: 100rem;
+  border: 5px solid aqua;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  animation: spinner 1s infinite linear alternate;
+  /* + tên animation; + tổng thời gian chạy; + nếu bạn muốn nó chạy bao nhiều lần thì để số vào ví dụ chạy 1 lần thì để số 1 còn muốn nó chạy vô tận
+  để infinite; + thời gian delay (nếu có), + kiểu chạy (linear là chậm đều chậm đều); + alternate: chạy qua xong chạy ngược lại, đầu tiên chạy cùng chiều
+  kim đồng hồ, sau đó chạy ngược chiều kim đồng hồ. Nếu dùng forward hoặc backward thì không dùng infinite mà chỉ dùng số (vd như chạy 1 lần, 2 lần)
+  forward khi chạy xong thì nó đứng im tại vị trí nó dừng luôn, backwark khi chạy xong thì nó sẽ quay về vị trí trạng thái ban đầu
+  */
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

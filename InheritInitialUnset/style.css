@@ -1,0 +1,20 @@
+.container {
+  color: red;
+}
+
+/* inherit kế thừa giá trị từ phần tử cha, nếu phần tử cha không có thì nhảy ra phần tử ông nội, phần tử ông nội không có thì nhảy ra phần tử ông cố nội */
+.one {
+  color: inherit;
+}
+
+/* initial lấy giá trị theo trình duyệt (browser) */
+.two {
+  color: initial;
+}
+
+/* Xảy ra 2 trường hợp 1 là Inherit, 2 là Initial */
+/* Inherit: Xảy ra khi mà thằng cha có trùng thuộc tính */
+/* initial: Xảy ra khi mà thằng cha ko có trùng thuộc tính thì nó sẽ lấy theo broser */
+.three {
+  color: unset;
+}

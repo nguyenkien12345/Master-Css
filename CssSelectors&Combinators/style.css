@@ -1,0 +1,82 @@
+body, html{
+    font-family: "Montserrat",sans-serif;
+    font-size: 62,5%;
+}
+
+.title{
+    color:blue;
+    font-size: 4rem;
+}
+
+/* class title và class demo_1 phải nằm cạnh (liền kề) nhau thì mới áp dụng thuộc tính color cho .demo_1 được */
+.title + .demo_1{
+    color: red;
+}
+
+/* class title và class demo_2 không nằm cạnh (liền kề) nhau nhưng lại đồng cấp (cùng là class) thì áp dụng thuộc tính color cho .demo_2 được */
+.title ~ .demo_2{
+    color: green;
+}
+
+li{
+    list-style: none;
+}
+
+/* Chỉ áp dụng thẻ li đầu tiên */
+.list1 > li:first-child{
+    color: orange;
+    font-size: 5rem;
+}
+
+/* Chỉ áp dụng thẻ li cuối cùng */
+.list1 > li:last-child{
+    color: yellow;
+    font-size: 5rem;
+}
+
+/* Chỉ áp dụng thẻ li thứ 3 */
+.list1 > li:nth-child(3){
+    color: red;
+    font-size: 5rem;
+}
+
+/* Trong list2 có 4 thẻ con trong đó 2 thẻ con là p 2 thẻ con là li mà ta chỉ muốn thẻ con li đầu tiên thì dùng first-of-type*/
+.list2 > li:first-of-type{
+    color: aqua;
+    font-size: 5rem;
+}
+
+.list2 > p:first-of-type{
+    color: aqua;
+    font-size: 5rem;
+}
+
+/* ^: bắt đầu, *: có chứa, $: kết thúc */
+
+/* Lấy ra thẻ div có style bắt đầu là cursor: pointer */
+/* div[style^="cursor: pointer"]{
+    color: green;
+} */
+
+/* Lấy ra thẻ div có style kết thúc là pointer */
+/* div[style$="pointer"]{
+    color: green;
+} */
+
+/* Lấy ra thẻ div có style chứa từ pointer */
+/* div[style*="pointer"]{
+    color: green;
+} */
+
+/* input[type="text"]{
+    color: red;
+}
+
+div[data-title]{
+    color: blueviolet;
+} */
+
+/* Lưu ý:
+last-child: chạy từ: 1 2 3 4 5
+nth-last-child : chạy ngược lại là 5 4 3 2 1
+*/

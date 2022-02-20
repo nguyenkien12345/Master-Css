@@ -1,0 +1,109 @@
+.ring1 {
+    width: 50px;
+    height: 50px;
+    border-radius: 100rem;
+    border: 5px solid aqua;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    animation: spinner 3s infinite linear;
+}
+
+.ring2 {
+    margin: 50px 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100rem;
+    border: 5px solid aqua;
+    background-color: #6a5af9;
+    animation: zoom 3s infinite linear;
+}
+
+.loader {
+    margin: 50px 0px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader div{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Thằng 1 chạy trước thằng 2 1 khoảng thời gian 0.5s (Thằng chạy lên là thằng số 3 thằng chạy xuống là thằng số 1) */
+.loader div:nth-child(1){
+    width: 80px;
+    height: 80px;
+    border-radius: 100rem;
+    background-color: #ff6651;
+    animation: spinnerTiktok 1s infinite linear;
+    animation-delay: -0.5s;
+} */
+
+.loader div:nth-child(2){
+    width: 80px;
+    height: 80px;
+    border-radius: 100rem;
+    background-color: #20e3b2;
+    animation: spinnerTiktok 1s infinite linear;
+}
+
+.loader div:nth-child(3){
+    width: 80px;
+    height: 80px;
+    border-radius: 100rem;
+    background-color: #ff6651;
+    animation: spinnerTiktokNext 1s infinite linear;
+    animation-delay: -0.5s;
+}
+
+@keyframes spinner {
+    from{
+        transform: rotate(-360deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes zoom {
+    from{
+        transform: scale(0);
+        opacity: 1;
+    }
+    to{
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes spinnerTiktok {
+    0%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(80px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+@keyframes spinnerTiktokNext {
+    0%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    50%{
+        opacity: 0;
+        transform: translateX(80px);
+    }
+    100%{
+        opacity: 0;
+        transform: translateX(0);
+    }
+}

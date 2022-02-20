@@ -1,0 +1,120 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+body,
+input,
+button,
+textarea,
+select {
+  outline: none;
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+}
+input {
+  line-height: normal;
+}
+button {
+  cursor: pointer;
+}
+body {
+  padding: 20px;
+}
+
+/* .wrapper {
+    width: 100%;
+    height: 400px;
+    background-color: black;
+    color: white;
+    padding: 25px;
+    position: relative;
+} */
+
+/* Ví dụ 1 */
+/* .boxed1{
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+    display: inline-block;
+    position: relative;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+} */
+
+
+/* Ví dụ 2 */
+/* .boxed2{
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+} */
+
+/* Droplist */
+.dropdown{
+  width: 300px;
+  font-size: 16px;
+  margin-top: 50px;
+  position: relative;
+}
+
+.dropdown-select{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: 18px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown-list{
+  border: 1px solid#eee;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: yellow;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  transform: translateY(50px);
+}
+.dropdown-item{
+  padding: 20px;
+  font-size: 18px;
+  border-bottom: 1px solid #eee;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown:hover .dropdown-list{
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 
+Lý thuyết 
+- static: Không thể sử dụng các giá trị đi kèm là top,left,z-index
+- relative: Bản chất phần tử vẫn nằm ik nguyên ở vị trí ban đầu, vẫn chiếm diện tích. Top left là di chuyển cái phần tử đó đi nhưng sau khi cái phần tử đó dịch chuyển theo top left thì ở vị trí cũ nó vẫn chiếm diện tích
+- absolute: Bản chất phần tử vẫn nằm ik nguyên ở vị trí đó, nhưng không còn chiếm diện tích. Nó sẽ luôn luôn nằm ở góc 0 bên trên tay trái sát mép
+*/

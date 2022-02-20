@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 vài tips hữu ích mới</title>
+</head>
+
+<style>
+    /* Demo 1 */
+    *::selection {
+        color: red;
+        background-color: blue;
+    }
+
+    /* Demo 2 */
+    img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+        filter: grayscale(2);
+    }
+
+    img:hover {
+        filter: none;
+    }
+
+    /* Demo 3: Công thức responsive video, image theo tỉ lệ: x:y => y/x * 100% = value ? (value use for padding-bottom)*/
+    /* Vd: Responsive video theo tỉ lệ 16:9 => 9/16 * 100% */
+    .responsive-video {
+        position: relative;
+        height: 0px;
+        padding-bottom: calc((9/16) * 100%);
+    }
+
+    .responsive-video iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<body>
+    <!-- Demo 1: Khi kéo chọn chữ thì cái chữ được kéo chọn sẽ có color và background-color theo ý muốn của ta -->
+    <span>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus culpa aliquid quae dolores incidunt corrupti
+        doloremque odit voluptatum?
+        Repellat veniam sed quia! Ut alias aliquam, incidunt reiciendis est culpa repudiandae.
+    </span>
+
+    <!-- Demo 2: Cho tất cả toàn bộ ảnh là màu xám, khi nào hover vào ảnh thì trả ảnh về màu nền gốc  -->
+    <img src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t39.30808-6/273637558_1538808289837870_4988641396035699733_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=VO1u2iUErp4AX8wci_t&_nc_ht=scontent.fsgn2-2.fna&oh=00_AT_sqwdOkTq_hyC82oG0VO3jNuQvI5JUnSNBJCUTO3xzmA&oe=6215B689"
+        alt="Girl">
+    <img src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t39.30808-6/175710607_836246773986879_2461672808923842883_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=D-wEA8cqp3AAX8Hg_53&_nc_ht=scontent.fsgn2-2.fna&oh=00_AT9eLEaUaC2Fmj9jJ3AyaariVM95IZSUBJF45JHALz-UEg&oe=6215DC6F"
+        alt="Girl">
+
+    <!-- Demo 3: Responsive khích thước video theo kích thước mong muốn -->
+    <div class="responsive-video">
+        <iframe width="1280" height="720" src="https://www.youtube.com/embed/jEeyRCryU4o" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+</body>
+
+</html>

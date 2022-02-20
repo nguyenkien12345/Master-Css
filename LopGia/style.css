@@ -1,0 +1,83 @@
+/* DEMO 1 */
+/* .red-input:focus {
+background: yellow;
+color: red;
+}
+
+.blue-input:focus {
+background: yellow;
+color: blue;
+} */
+
+/* DEMO 2 */
+#modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 70%;
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+#modal-container:not(:target) {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s, visibility 1s;
+}
+
+#modal-container:target {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s, visibility 1s;
+}
+
+/* DEMO 3 */
+/* figcaption {
+    padding: 1em;
+    background: lightgrey;
+  }
+   
+  figcaption:empty {
+    display: none;
+  } */
+
+/* DEMO 4 */
+/* .tooltip{
+display: inline;
+position: relative;
+}
+ 
+.tooltip:hover:after{
+background: #333;
+background: rgba(0,0,0,.8);
+border-radius: 5px;
+bottom: 26px;
+color: #fff;
+content: attr(title);
+left: 20%;
+padding: 5px 15px;
+position: absolute;
+z-index: 98;
+width: 220px;
+}
+ 
+.tooltip:hover:before{
+border: solid;
+border-color: #333 transparent;
+border-width: 6px 6px 0 6px;
+bottom: 20px;
+content: "";
+left: 50%;
+position: absolute;
+z-index: 99;
+} */

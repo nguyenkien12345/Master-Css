@@ -1,0 +1,28 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    width: 100vw;
+    height: 100vh;
+}
+
+.list {
+    display: flex;
+    align-items: stretch;                   /* Trục x chiều dọc */
+    justify-content: flex-start;            /* Trục y chiều ngang*/
+    flex-wrap: wrap;
+    margin: 0 -20px;                        /*  Ta muốn mất đi các ml, mr của các list__item nên để là -20 */
+}
+
+.list__item {
+    margin: 0px 20px;
+    width: (33.33% - 40px);                 /*  margin-left: 20px,  margin-right: 20px => 40px */
+}
+
+.list__image {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}

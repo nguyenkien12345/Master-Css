@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden; 
+}
+
+img{
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    color: black;
+    line-height: 1.5;
+    padding: 15px;
+}
+
+.container{
+    max-width: 1030px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Phân chia đồng đều các post-item */
+.post-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Chia thành 3 cột bằng nhau: đều là 1fr */
+    grid-gap: 0 40px; /* khoảng cách giữa các row là 0px, khoảng cách giữa các column là 40px */
+}
+
+.post-media{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.post-image{
+    width: 100%;
+    height: 310px;
+    border-radius: 12px;
+    object-fit: cover; /* Để cho ảnh không bị méo */
+}
+
+.post-category{
+    display: inline-block;
+    padding: 5px 10px;
+    color: #00aefd;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Để thay đổi màu chữ mà background cũng tự thay đổi theo mà không phải khai báo background và copy màu ik chang thì làm như sau*/
+.post-category::after{
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 4 thuộc tính trên để phủ hết toàn bộ thằng cha */
+
+    border-radius: inherit;         /* Kế thừa giá trị thuộc tính border-radius từ phần tử cha của nó */
+    background-color: currentColor; /* Kế thừa giá trị thuộc tính color từ phần tử cha của nó */ 
+
+    opacity: 0.15;                  /* Vì chữ trùng màu background nên dùng opacity giảm nền background xuống*/
+}
+
+.post-title{
+    font-size: 18px;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.post-desc{
+    font-weight: 300;
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 20px;
+
+    /* Giới hạn chỉ 2 dòng chữ */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    max-width: 100%;
+
+    word-break: break-word;
+}
+
+.post-author{
+    display: flex;
+    align-items: center;
+}
+
+    .post-author-image{
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        object-fit: cover; /* Để cho ảnh không bị méo */
+        flex-shrink: 0;     /* Để cho ảnh không bị bóp lại. Để ảnh lúc nào cũng ở vị trí đó */
+        margin-right: 10px;
+    }
+
+    .post-author-name{
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: black;
+    }
+
+    .post-author-time{
+        font-size: 12px;
+        color:#999;
+        font-weight: 300;
+    }
+
+    .post-feature{
+        display: grid;
+        grid-template-columns: 1.5fr 1fr; /* Thằng bên trái gấp rưỡi thằng bên phải */
+        grid-gap:0 30px; /* row không có còn column là 30px */
+        align-items: center;
+        margin-bottom: 40px;
+    }
+    
+    .post-feature-image{
+        border-radius: 10px;
+        object-fit: cover;
+        width: 100%;
+        height: 370px;
+    }
+    
+    .post-feature-media{
+        margin-bottom: 0px;
+    }
+    
+    .post-feature-title{
+        font-size: 35px;
+        font-weight: bold;
+        line-height: 1.3;
+        /* Giới hạn chỉ 3 dòng chữ */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        max-width: 100%;
+    
+        word-break: break-word;
+    }
+
+    @media screen and (max-width: 1023px) {
+        .post-list{
+            grid-template-columns: 100%; 
+            grid-gap: 30px 0; /* row: 30px; column: 0px */
+        }
+
+        /* Chia theo tỉ lệ 16:9 */
+        .post-media{
+            position: relative;
+            padding-top: 56.25%;
+            height: 0;
+        }
+        .post-image,.post-feature-image{
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+
+        .post-feature{
+            grid-template-columns: 100%; 
+            grid-gap: 30px 0; /* row: 30px; column: 0px */
+        }
+        .post-feature-title{
+            font-style: 25px;
+            line-height: 1.3;
+        }
+
+}

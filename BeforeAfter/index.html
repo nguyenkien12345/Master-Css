@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- DEMO BEFORE -->
+    <!-- <h2>Animation background</h2> -->
+
+    <!-- DEMO AFTER -->
+    <div class="quote"></div>
+</body>
+</html>
+
+<!-- Lúc đầu mình cho :before có thuộc tính content: "" rỗng, position: absolute để chạy theo phần tử cha(ở đây là thẻ h2 chính nó) 
+và  top: 0, left: 0 thì nó sẽ nằm góc bên trái trên cùng. Kèm theo là height: 100% nghĩa là nó sẽ chiếm chiều cao 100% của phần tử mà 
+chúng ta đang làm là thẻ h2 và set độ rộng(width) là 0 để nó chưa có gì hết. Và kèm thêm transition để làm hiệu ứng nó mượt hơn khi :hover vào.
+Sau đó mình dùng :hover để khi chúng ta rê chuột vào thì mình cho độ rộng(width: 100%) để cho cái background-color nó chạy ra từ trái qua phải. Bạn có thể xem demo Codepen này -->
+
+<!-- Các bạn sẽ thấy khi rê chuột vào background-color nó chạy đè lên chữ luôn. Như vậy là sai rồi. Vì thế đừng quên dùng thuộc tính z-index vào nhé. Ở trong Codepen các bạn check code CSS sẽ thấy mình có comment cái z-index: -1 lại đó.
+Mình để số âm là vì muốn nó nằm dưới, z-index hoạt động như các lớp đè lên nhau lớp nào có z-index cao hơn sẽ nằm lên trên và ngược lại lớp nào có z-index thấp hơn sẽ nằm ở dưới.
+Mặc định giá trị của z-index là auto và z-index chỉ hoạt động khi đi kèm với thuộc tính position nhé. -->

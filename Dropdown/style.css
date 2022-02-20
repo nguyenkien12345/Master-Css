@@ -1,0 +1,102 @@
+html{
+    font-size: 62.5%;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1a1c28;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --primary: #DE4B3E;
+    --secondary: #C74237;
+}
+
+.dropdown{
+    width: 100%;
+    max-width: 47.5rem;
+    margin: 5rem auto;
+    position: relative;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.8rem;
+    border-radius: 5px;
+}
+
+.dropdown_select{
+    width: 100%;
+    padding: 3rem;
+    background-color: var(--primary);
+    border-radius: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.dropdown_list{
+    margin-top: 2.5rem;
+    position: absolute;
+    top:100%;
+    /* left right 0 tương đương width 100 */
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+.dropdown_list::before{
+    content: "";
+    height: 2.6rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    transform: translateY(-100%);
+}
+
+.dropdown:hover .dropdown_list{
+    display: block;
+}
+
+.dropdown_item{
+    padding: 3rem;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+}
+
+.dropdown_item:hover{
+    background-color: var(--secondary);
+}
+
+.dropdown_item:first-child{
+    border-radius: 4px 4px 0 0;
+    position: relative;
+}
+
+.dropdown_item:last-child{
+    border-radius: 0 0 4px 4px;
+}
+
+.dropdown_item:first-child:before{
+    content: "";
+    position: absolute;
+    /* 4 cái tam giác tạo ra 1 hv */
+    top: 0;
+    left: 3rem;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--primary);
+    transform: translateY(-100%);
+    /* Chỉ áp dụng cho background-color */
+    transition: border-color 0.2s linear;
+}
+
+.dropdown_item:first-child:hover::before{
+    border-bottom-color: var(--secondary);
+}

@@ -1,0 +1,55 @@
+.container{
+    width: 400px;
+    height: 600px;
+    background-color: papayawhip;
+    padding: 20px;
+}
+
+.item{
+    width: 150px;
+    height: 150px;
+    color: white;
+    padding: 10px;
+}
+
+.first-item{
+    background-color: goldenrod;
+    border: 5px solid gray;
+}
+
+.second-item{
+    background-color: brown;
+    border: 5px solid black;
+    margin-top: -50px;
+    margin-left: 50px;
+    position: relative;
+    z-index: 1000;  /* 10.1000 */
+}
+
+/* Tại sao z-index: 1000; mà không nằm đè lên tất cả các thằng khác mà vẫn nằm dưới. Bởi vì lúc này .second-item là item con trong thằng cha block-1 mà thằng này đã có thuộc tính z-index rồi nên lúc này nó sẽ không tính z-index của thằng con. Nên lúc này nó chỉ so sánh z-index của 2 thằng đồng cấp (ở đây là 2 thẻ cha block-1 và block-2)  */
+
+
+.third-item{
+    background-color: blueviolet;
+    border: 5px solid peru;
+    margin-top: -50px;
+    margin-left: 100px;
+    transform: rotateZ(45deg);
+}
+
+.block-1 {
+    position: relative;
+    z-index: 10;
+} 
+
+.block-2{
+    width: 150px;
+    height: 150px;
+    background-color: aqua;
+    border: 5px solid black;
+    margin-top: -200px;
+    position: relative;
+    z-index: 20;
+} 
+
+/* z-index của thằng nào lớn hơn thì thằng đó sẽ nằm đè lên thằng có z-index nhỏ hơn */

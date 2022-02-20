@@ -1,0 +1,69 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    width: 100vh;
+    height: 800px;
+    border: 5px solid gray;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    height: 200px;
+    padding: 10px;
+    flex-basis: 200px;
+}
+
+.box p{
+    font-size: 20px;
+    color: white;
+}
+
+.box-1{
+    background-color: rgb(248,99,31);
+    flex-grow: 1;
+    order: 2;
+}
+
+.box-2{
+    background-color:rgb(48,197,28);
+    flex-grow: 1;
+    order: 1;
+}
+
+.box-3{
+    background-color: rgb(33,36,233);
+    flex-grow: 1;
+    order: 3;
+}
+
+/* Trục dọc là cross, trục ngang là main */
+/* flex-direction: row; --> trái sang phải */
+/* flex-direction: column; --> trên xuống dưới */
+/* flex-wrap: nowrap; --> Nếu có quá nhiều các flex item ở phía trong mặc định nó sẽ không xuống dòng và tràn ra ngoài*/
+/* flex-direction: row; --> 2 dòng này sẽ tương đương (bằng) với: flex-flow: row wrap; (Canh theo trục ngang và xuống dòng nếu tràn ra ngoài)
+   flex-wrap: wrap; */
+/* justify-content: center; --> canh theo trục ngang*/ 
+/* align-items: center; --> canh theo trục dọc */
+
+/** 
+    Các thuộc tính quan trọng của flex item (nằm trong container (hay 1 khối) có thuộc tính display: flex thì gọi là flex item):
+    flex-grow
+    flex-shrink
+    flex-basis
+    Cần nằm khái niệm availabel space (Không gian khả dụng): Khoảng không gian khả dụng ở đây chính là khoảng trống còn thừa lại của flex container theo trục main. Và để sử dụng availabel space này thì ta cần sử dụng hiệu quả 3 thuộc tính trên
+**/
+
+/* flex-basis --> Xác định kích thước (width) của 1 flex item*/
+/* Nếu ta không set giá trị cho width giá trị của flex-basis thì mặc định sẽ là kích thước nội dung của các flex item đó*/
+/* flex-grow: 1 --> Khi ta set thuộc tính này cho 1 flex item thì nó sẽ tăng width item đó lên chiếm hết không gian khả dụng của flex container*/ 
+/* order sắp xếp vị trí */
+/* flex-shrink chỉ áp dụng khi khoảng không gian khả dụng của chúng ta là âm. Khi các flex item nằm tràn ra ngoài flex container thì lúc đấy flex-shrink mới có giá trị giúp cho các flex item chỉ chiếm đủ không gian khả dụng không tràn ra ngoài nữa.
+*/
+/* flex: 1 1 auto; tương ứng với flex-grow, flex-shrink, flex-basis */

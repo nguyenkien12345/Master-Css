@@ -1,0 +1,31 @@
+/* Ví dụ 1 */
+/* .text {
+    font-size: 30px;
+    line-height: calc(30 / 16);
+} */
+
+/* Ví dụ 2 */
+.layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.content {
+    /* Lấy 100% - độ rộng ảnh => Độ rộng content */
+    width: calc(100% - 100px);
+}
