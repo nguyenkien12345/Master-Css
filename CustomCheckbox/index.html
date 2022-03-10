@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Checkbox</title>
+</head>
+
+<style>
+    .checkbox {}
+
+    .checkbox_input {
+        display: none;
+    }
+
+    .checkbox_label {
+        position: relative;
+        padding-left: 50px;
+        cursor: pointer;
+    }
+
+    /* Khi dùng before, after sẽ không chiếm diện tích do đó muốn canh chỉnh vị trí của nó thì phải dùng padding-left, padding-right với thẻ cha */
+    .checkbox_label::before{
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background-color: red;
+        border-radius: 10px;
+    }
+
+    /* Bản chất của dấu checkbox chính là hình vuông với border-left, border-bottom quay 1 góc 45deg */
+    .checkbox_label::after{
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 10px;
+        width: 20px;
+        height: 10px;
+        transform: rotate(-45deg);
+        border-left: 3px solid white;
+        border-bottom: 3px solid white;
+        /* Ẩn đi khi nào click checkbox thì mới hiện */
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.25s linear;
+    }
+    
+    /* Khi mà checkbox_input được checked thì sẽ áp dụng các thuộc tính css sau cho checkbox_label::after */
+    .checkbox_input:checked + .checkbox_label::after{
+        opacity: 1;
+        visibility: visible;
+    }
+</style>
+
+<body>
+    <div class="checkbox">
+        <input type="checkbox" class="checkbox_input" id="checkbox_input"/>
+        <label for="checkbox_input" class="checkbox_label" id="checkbox_label">I agree the term</label>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gutter: 5rem;
+  --primary: #f00;
+  --secondary: #87a787;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #c1e8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flash-list {
+  display: flex;
+  flex-direction: row;
+  padding: 0 2rem;
+  margin-left: -2rem;
+  /* Vì 2 item đều cách trái 2 rem đồng nghĩa item 2 sẽ cách trái 2 rem mặc dù bên trái nó không có item nào nên ở thằng list (cha) ta sẽ cho nó là -2rem
+    để bù lại 2rem trái đó của item 2*/
+}
+
+.flash-item {
+  background-color: white;
+  border-radius: 4px;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  margin-left: 2rem;
+}
+
+.flash-icon {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 2rem;
+}
+
+.flash-icon-primary {
+  background-color: var(--primary);
+}
+
+.flash-icon-secondary {
+  background-color: var(--secondary);
+}
+
+.flash-title {
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  line-height: 1.8;
+}
+
+.btn {
+  cursor: pointer;
+  outline: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+}
+
+.btn--primary {
+  background-color: var(--primary);
+}
+
+.btn--secondary {
+  background-color: var(--secondary);
+}

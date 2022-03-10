@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 cách tạo Border Gradient</title>
+</head>
+
+<style>
+    /* Cách 1: Dùng border-image-slice, border-image-source */
+    /* .boxed{
+        width: 300px;
+        height: 300px;
+        background-color: #191a28;
+        border: 10px solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right bottom, #ffa400, #ff6bcb);
+    } */
+
+    /* Cách 2: Dùng inner div, outner div */
+    /* .outner-boxed{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-image: linear-gradient(to right bottom, #ffa400, #ff6bcb);
+        padding: 10px;
+    }
+
+    .inner-boxed{
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        background-color: white;
+    } */
+
+    /* Cách 3: Dùng pseudo :before or :after */
+    .boxed{
+        width: 300px;
+        height: 300px;
+        background-color: white;
+        position: relative;
+        background-clip: padding-box;
+        border: 10px solid transparent;
+        border-radius: 50%;
+    }
+    .boxed::before{
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        margin: -10px;
+        /* margin: -10px; tương ứng với border: 10px */
+        border-radius: inherit;
+        background-image: linear-gradient(to right bottom, #ffa400, #ff6bcb);
+    }
+</style>
+
+<body>
+    <!-- Cách 1: Dùng border-image-slice, border-image-source -->
+    <!-- <div class="boxed"></div> -->
+
+    <!-- Cách 2: Dùng inner div, outner div -->
+    <!-- 
+    <div class="outner-boxed">
+        <div class="inner-boxed"></div>
+    </div> 
+    -->
+
+    <!-- Cách 3: Dùng pseudo :before or :after -->
+    <div class="boxed"></div>
+</body>
+</html>

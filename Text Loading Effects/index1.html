@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Effects Blend-mode</title>
+</head>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        header{
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        header video{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        header h2{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            font-size: 28vw;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-align: center;
+            background: white;
+            line-height: 100vh;
+            mix-blend-mode: screen;
+        }
+
+        section{
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: rgb(46,46,46);
+            color: white;
+        }
+
+        section .box{
+            width: 100%;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        section .box h2{
+            font-size: 17.8vw;
+            font-weight: 800;
+            text-transform: uppercase;
+            /* Lưu ý 4 thuộc tính này */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 100% 500px;
+            background-attachment: fixed;
+        }
+
+        section .box:nth-child(1) h2{
+            background-image: url('images/thunder.jpg');
+        }
+
+        section .box:nth-child(2) h2{
+            background-image: url('images/forest.jpg');
+        }
+
+        section .box:nth-child(3) h2{
+            background-image: url('images/ice.jpg');
+        }
+
+        section .box a{
+            color: black;
+            display: inline-block;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 25px;
+            margin: 30px;
+            background: white;
+            text-decoration: none;
+            font-size: 1.7em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+    </style>
+
+<body>
+    <header>
+        <video autoplay muted loop>
+            <source src="blackpink.mp4" type="video/mp4"></source>
+        </video>
+        <h2>Video</h2>
+    </header>
+
+    <section>
+        <div class="box">
+            <h2>THUNDER</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate voluptas esse ab quas ratione corrupti,
+            magnam omnis hic est odit. Deleniti, ipsa. Dolore delectus perferendis blanditiis culpa repellendus facilis quae?</p>
+            <a href="#">read more</a>
+        </div>
+        <div class="box">
+            <h2>FOREST</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate voluptas esse ab quas ratione corrupti,
+            magnam omnis hic est odit. Deleniti, ipsa. Dolore delectus perferendis blanditiis culpa repellendus facilis quae?</p>
+            <a href="#">read more</a>
+        </div>
+        <div class="box">
+            <h2>ICE</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate voluptas esse ab quas ratione corrupti,
+            magnam omnis hic est odit. Deleniti, ipsa. Dolore delectus perferendis blanditiis culpa repellendus facilis quae?</p>
+            <a href="#">read more</a>
+        </div>
+    </section>
+</body>
+</html>
