@@ -108,26 +108,6 @@
         */
 
         /* selectors: is và where */
-        /* div p, section p, main p,  article p {
-          font-size: 16px;
-          font-weight: 600;
-          font-style: italic;
-        } */
-
-        div p { color: yellow; }
-        section p { color: red; }
-        main p { color: greenyellow; }
-        article p { color: pink; }
-
-        /* Viết theo kiểu div p, section p, main p,  article p {} quá dài dòng nên ta sẽ có cách viết khác như sau: */
-        /* Thay :where bằng :is cũng cho ra kết quả tương tự */
-        /* :where: Không thể ghi đè css, còn :is có thể ghi đè css */
-        :where(div, section, main, article) p {
-          font-size: 16px;
-          font-weight: 600;
-          font-style: italic;
-          color: purple;
-        }
     </style>
 
 <body>
@@ -144,18 +124,5 @@
     -->
 
     <!-- <div class="child"></div> -->
-
-    <div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore beatae quia facere excepturi est dicta tempore atque voluptates molestias iure fugiat necessitatibus nisi velit libero ipsa, officia incidunt. Necessitatibus, accusantium.</p>
-    </div>
-    <section>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem temporibus praesentium illo accusantium laboriosam eveniet commodi veritatis sequi dolor! Ipsam possimus porro, dignissimos fugiat voluptatum accusamus dolore dolorem ipsum cupiditate.</p>
-    </section>
-    <main>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, a itaque quaerat dicta cum beatae accusantium omnis quam nemo eos dolores maxime asperiores fugiat placeat ullam aliquam expedita delectus! Voluptas!</p>
-    </main>
-    <article>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente quasi facilis perferendis, voluptates, sunt placeat minus id nostrum alias harum, possimus itaque obcaecati incidunt nesciunt expedita vero facere illum eius?</p>
-    </article>
 </body>
 </html>

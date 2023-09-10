@@ -121,12 +121,10 @@
 
         /* Viết theo kiểu div p, section p, main p,  article p {} quá dài dòng nên ta sẽ có cách viết khác như sau: */
         /* Thay :where bằng :is cũng cho ra kết quả tương tự */
-        /* :where: Không thể ghi đè css, còn :is có thể ghi đè css */
-        :where(div, section, main, article) p {
+        :is(div, section, main, article) p {
           font-size: 16px;
           font-weight: 600;
           font-style: italic;
-          color: purple;
         }
     </style>
 

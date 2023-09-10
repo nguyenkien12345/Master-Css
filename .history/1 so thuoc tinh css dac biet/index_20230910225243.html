@@ -114,19 +114,10 @@
           font-style: italic;
         } */
 
-        div p { color: yellow; }
-        section p { color: red; }
-        main p { color: greenyellow; }
-        article p { color: pink; }
-
-        /* Viết theo kiểu div p, section p, main p,  article p {} quá dài dòng nên ta sẽ có cách viết khác như sau: */
+        /* Viết như trên quá dài dòng nên ta sẽ có thêm 2 cách viết khác */
         /* Thay :where bằng :is cũng cho ra kết quả tương tự */
-        /* :where: Không thể ghi đè css, còn :is có thể ghi đè css */
         :where(div, section, main, article) p {
-          font-size: 16px;
-          font-weight: 600;
-          font-style: italic;
-          color: purple;
+          
         }
     </style>
 
