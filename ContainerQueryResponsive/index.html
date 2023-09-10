@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive (Container Query)</title>
+</head>
+
+<style>
+    .wrapper {
+        display: grid;
+        /* 3 cột: cột 1 và 3 có width là 300px, cột 2 có width linh hoạt và điều chỉnh để lấp đầy không gian còn lại trong lưới */
+        grid-template-columns: 300px minmax(0, 1fr) 300px;
+        height: 100vh;
+    }
+
+    .sidebar {
+        width: 100%;
+        background-color: #eee;
+    }
+
+    .main {
+        padding: 20px;
+        /* Gõ use-container */
+        /* Container Query: Ta muốn responsive cho các thẻ con nằm trong thẻ cha là main */
+        container-type: inline-size;
+        /* Đặt tên gì cũng được */
+        container-name: main;  
+    }
+
+    .article{
+        /* Gõ fa-center */
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        border: 1px solid #eee;
+        border-radius: 12px;
+    }
+
+    .article-image{
+        flex: 0 0 150px;    /* flex-grow, flex-shrink, và flex-basis. */
+        aspect-ratio: 1/1;  /* hình vuông */
+    }
+
+    .article-image img {
+        /* Gõ img-cover */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .article-content{
+        /* Gõ flex-col */
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .article-title{
+        font-weight: 600px;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+
+    .article-desc{
+        font-size: 14px;
+        line-height: 1.75;
+        color: #333;
+    }
+
+    /* <= 1024px */
+    @media screen and (max-width: 1024px) {
+        .wrapper {
+            display: block;
+        }
+
+        .sidebar {
+            display: none;;
+        }
+    }
+
+    /* Responsive: Chúng ta phải viết quá nhiều media query cho nhiều kích thước màn hình chỉ để xử lý css của mỗi class article  */
+    /* <= 1228px */
+    /* @media screen and (max-width: 1228px) {
+        .article {
+            flex-direction: column;
+        }
+    } */
+
+    /* <= 800px */
+    /* @media screen and (max-width: 800px) {
+        .article {
+            flex-direction: row;
+        }
+    } */
+
+    /* <= 600px */
+    /* @media screen and (max-width: 600px) {
+        .article {
+            flex-direction: column;
+        }
+    } */
+
+    /* Responsive: Container Query */
+    /* Container Query: Sử dụng cho thẻ cha bọc cái thẻ con mà chúng ta muốn responsive  */
+    /* Gõ container-name  */
+    /* Áp dụng cho container có name là main */
+    /* Khi ta responsive bất cứ khi nào mà  .main có width <= 500px thì apply toàn bộ đoạn code css bên dưới */
+    /* <= 500px */
+    @container main (max-width: 500px) {
+        .article {
+            flex-direction: column;
+        }
+    }
+
+</style>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar"></div>
+
+        <main class="main">
+            <div class="article">
+                <div class="article-image">
+                    <img src="./images/Thuy.jpg" alt="Mai Thị Thanh Thúy">
+                </div>
+                
+                <div class="article-content">
+                    <h3 class="article-title">Mai Thị Thanh Thúy Và Nguyễn Trung Kiên</h3>
+                    <p class="article-desc">"Đừng nên trao nhau ánh mắt xa lạ, bởi vì chúng ta đã từng rất thân quen"
+                    Sau này nếu có vô tình gặp, hãy vẫy tay chào nhau như vậy nhé.
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <div class="sidebar"></div>
+    </div>
+</body>
+
+</html>
+
+
+<!-- 
++ Trục dọc là cross, trục ngang là main
++ flex-direction: row;  trái sang phải
++ flex-direction: column;  trên xuống dưới
++ flex-wrap: nowrap;  Nếu có quá nhiều các flex item ở phía trong mặc định nó sẽ không xuống dòng và tràn ra ngoài
+flex-direction: row;  2 dòng này sẽ tương đương (bằng) với: flex-flow: row wrap; (Canh theo trục ngang và xuống dòng nếu tràn ra ngoài)
+flex-wrap: wrap;
++ justify-content: center;  canh theo trục ngang
++ align-items: center;  canh theo trục dọc
++ Các thuộc tính quan trọng của flex item (nằm trong container (hay 1 khối) có thuộc tính display: flex thì gọi là flex item): flex-grow, flex-shrink, flex-basis
++ Cần nằm khái niệm availabel space (Không gian khả dụng): Khoảng không gian khả dụng ở đây chính là khoảng trống còn thừa lại của flex container theo trục main. Và để sử dụng availabel space này thì ta cần sử dụng hiệu quả 3 thuộc tính trên
++ order: sắp xếp vị trí
++ flex-shrink chỉ áp dụng khi khoảng không gian khả dụng của chúng ta là âm. Khi các flex item nằm tràn ra ngoài flex container thì lúc đấy flex-shrink mới có giá trị giúp cho các flex item chỉ chiếm đủ không gian khả dụng không tràn ra ngoài nữa.
+
++ flex: 1 1 auto; tương ứng với flex-grow, flex-shrink, flex-basis 
+
++ flex: 1 là viết tắt của flex-grow: 1, flex-shrink: 1, flex-basis: 0
+- flex-grow: 1  Khi ta set thuộc tính này cho 1 flex item thì nó sẽ tăng width item đó lên chiếm hết không gian khả dụng của flex container
+  (1 là cho phép giãn ra tức là khi container có đủ khoảng trống thì nó sẽ giản ra, 0 là không cho phép giãn ra)
+- flex-basis: Xác định kích thước (width) của 1 flex item. Nếu ta không set giá trị cho width giá trị của flex-basis thì mặc định sẽ là kích thước nội dung của các flex item đó
+- flex-shrink chỉ áp dụng khi khoảng không gian khả dụng của chúng ta là âm. Khi các flex item nằm tràn ra ngoài flex container thì lúc đấy flex-shrink mới có giá trị giúp cho các flex item chỉ chiếm đủ không gian khả dụng không tràn ra ngoài nữa.
+(flex-shrink là 1 thì khi co màn hình lại thì nó sẽ cho phép các phần tử trong flex co lại, flex-shrink là 0 thì không cho phép co lại)
+-->
