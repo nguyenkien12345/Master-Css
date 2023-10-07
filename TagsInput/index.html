@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hộp nhập thẻ tags trong HTML CSSS & Javascript</title>
+</head>
+
+<style>
+    body{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      min-height: 100vh;
+      background-image: linear-gradient(to bottom, #CEAFDE, #ADD8D5);  
+      font-family: monospace;
+    }
+
+    .container{
+        background-color: #eee;
+        width: 500px;
+        overflow: hidden;
+        border-radius: 20px;
+    }
+
+    .title{
+        display: flex;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .title img {
+        width: 40px;
+        object-fit: cover;
+        margin-right: 10px;
+    }
+
+    .title span {
+        text-transform: uppercase;
+        font-size: x-large;
+        font-weight: 600;
+        font-style: italic
+    }
+
+    .description{
+        padding: 0px 20px;
+        color: #555;
+        font-weight: 500;
+    }
+
+    .tags-input{
+        margin: 20px;
+        border: 1px solid #b5c8c6;
+        border-radius: 10px;
+        background: #fff;
+        padding: 10px;
+    }
+
+    .list-tags{
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .list-tags li {
+        padding: 5px;
+        margin: 0px 5px 5px 0px;
+        border: 1px solid #5556;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+    }
+
+    .remove{
+        width: 12px;
+        height: 12px;
+        background-image: url(remove.png);
+        background-size: cover;
+        background-repeat: none;
+        background-position: center;
+        margin-left: 10px;
+    }
+
+    .list-tags input {
+        /* Các thẻ li không khai báo order thì giá trị mặc định là 0 */
+        /* Thẻ input khai báo order là 1 thì mặc định nó sẽ luôn nằm cuối cùng */
+        order: 1;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .btn-removeaAll{
+        padding: 20px;
+        text-align: right;
+    }
+
+    .btn-removeaAll button {
+        background-image: linear-gradient(
+            to bottom, #A12CCE, #7248CF
+        );
+        color: #eee; 
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition:  all 0.5s linear;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <img src="./tag.png" alt="">
+            <span>Tags</span>
+        </div>
+
+        <div class="description">
+            <span>You can choose more than 1 tag</span>
+        </div>
+
+        <div class="tags-input">
+            <ul class="list-tags">
+                <!-- 
+                <li>
+                    Nguyễn Trung Kiên 
+                    <div class="remove"></div>
+                </li>
+                <li>
+                    Mai Thị Thanh Thúy 
+                    <div class="remove"></div> 
+                </li>
+                <li>
+                    Phạm Trần Hà Mi 
+                    <div class="remove"></div> 
+                </li>
+                <li>
+                    Ngô Nguyễn Phong My 
+                    <div class="remove"></div> 
+                </li>
+                <li>
+                    Vương Huỳnh Quế Trân 
+                    <div class="remove"></div> 
+                </li> 
+                -->
+                <input type="text" name="tags-name" id="tagsName">
+            </ul>
+        </div>
+
+        <div class="btn-removeaAll" id="btnRemoveAll">
+            <button>Remove All</button>
+        </div>
+    </div>   
+    
+    <script>
+        const ulListTags = document.querySelector('.tags-input .list-tags');
+        const inputTags = document.querySelector('.tags-input #tagsName');
+        const btnRemoveAll = document.querySelector('#btnRemoveAll');
+
+        let tags = [];
+
+        function showTags() {
+            document.querySelectorAll('.list-tags li').forEach((item) => item.remove());
+            tags.forEach(function(tag,index) {
+                const liTag = document.createElement('li');
+                liTag.innerHTML = tag;
+
+                const removeIcon = document.createElement('div');
+                // Thêm class remove cho thẻ div
+                removeIcon.classList.add('remove');
+                // Set sự kiện onclick đến hàm removeTag
+                removeIcon.setAttribute('onclick', `removeTag(${index})`);
+                liTag.appendChild(removeIcon);
+
+                ulListTags.appendChild(liTag);
+            });
+        }
+
+        function removeTag(index) {
+            delete tags[index];
+            showTags();
+        }
+
+        function removeAllTags() { 
+            tags = [];
+            showTags();
+        }
+
+        function getValueInput(event) {
+            if(event.key === 'Enter') {
+                let value = this.value;
+                if(!tags.includes(value)) {
+                    tags.push(value);
+                    showTags();
+                }
+                else {
+                    alert('This value is already exists');
+                }
+                this.value = '';
+            }
+        }
+
+        showTags();
+
+        btnRemoveAll.addEventListener("click", removeAllTags);
+
+        inputTags.addEventListener("keyup", getValueInput);
+    </script>
+</body>
+
+</html>

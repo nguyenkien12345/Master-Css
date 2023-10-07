@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm nền Video vào trang web</title>
+</head>
+
+<style>
+   @import url('https://fonts.googleapis.com/css2?family=Lacquer&display=swap');
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Lacquer', cursive;
+        font-size: 16px;
+    }
+
+    header {
+        width: 1300px;
+        /* Đối với những màn hình có kích thước nhỏ hơn 1300px thì width sẽ là 90% */
+        max-width: 90%;
+        margin: auto;
+        display: grid;
+        /* Chia làm 2 cột: cột 1 chiếm 20%, cột 2 chiếm 80% */
+        grid-template-columns: 20% 80%;
+        /* Mỗi cột cao 50px */
+        grid-template-rows: 50px;
+    }
+
+   .logo img {
+        height: 40px;
+        object-fit: cover;
+    }
+
+    .menu ul {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    .menu ul li {
+        list-style: none;
+        margin-left: 60px;
+        color: white;
+        font-weight: 600;
+    }
+
+    .bannner {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        /* Do chiều cao các cột trong header đang là 50px nên để banner nằm đè lên header ta chỉ cần dịch nó lên -50px */
+        margin-top: -50px;
+    }
+
+    .bg-video {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* Đảm bảo background của chúng ta có màu tối hơn */
+        filter: brightness(0.5);
+    }
+
+    
+    .content {
+        text-align: center;
+        color: red;
+        box-shadow: 0 10px 50px #630707;
+    }
+
+    .title {
+        font-size: 3em;
+        font-weight: 700;
+        animation: animationBlur 3s linear infinite;
+    }
+
+    .description {
+        text-align: left;
+        font-weight: 500;
+        /* Quay một góc */
+        rotate: -5deg;
+    }
+
+    /* Tạo ra 1 hiệu ứng mờ ảo lên đối tượng mà nó được khai báo */
+    @keyframes animationBlur {
+        0%, 80% {
+            filter: blur(0);
+        }
+        90% {
+            filter: blur(5px);
+        }
+        100% {
+            filter: blur(0);
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="./logo.png" alt="">
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <li>Home</li>
+                <li>Service</li>
+                <li>Product</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="bannner">
+
+        <video autoplay muted loop type="video/mp4" class="bg-video">
+            <source src="./video1.mp4">
+        </video>
+
+        <div class="content">
+            <div class="title">
+                Thêm nền Video vào trang web
+            </div>
+            <div class="description">
+                Nguyễn Trung Kiên <br/>
+                Mai Thị Thanh Thúy
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
