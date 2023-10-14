@@ -45,8 +45,8 @@ body {
 /* .boxed-1{
     margin-bottom: -20px;  
 } */
-/* Lúc này boxed-2 nó sẽ dịch ngược lên (được đẩy lên) 20px nằm đè lên boxed-1 */
 
+/* Lúc này boxed-2 nó sẽ dịch ngược lên (được đẩy lên) 20px nằm đè lên boxed-1 */
 /* .boxed-2{
     transform: translateY(-20px); 
 } */
@@ -86,3 +86,12 @@ body {
     align-items: center;
     background-color: #999;
 }
+
+
+/* 
+Lý thuyết:
+- transform: có nghĩa là thay đổi vật thể nhưng mà vị trí của nó (bản gốc, nguyên bản) vẫn nằm tại vị trí cũ (vị trí ban đầu)
+VD: transform: translateY: 20px => Tức là mắt mình nhìn thấy nó đã dịch chuyển xuống đây là 20px nhưng nguyên thể bản chất
+của nó vẫn nằm tại vị trí cũ
+- margin: thì hoàn toàn ngược lại
+*/
