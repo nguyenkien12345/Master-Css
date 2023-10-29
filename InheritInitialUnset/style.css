@@ -14,7 +14,8 @@
 
 /* Xảy ra 2 trường hợp 1 là Inherit, 2 là Initial */
 /* Inherit: Xảy ra khi mà thằng cha có trùng thuộc tính */
-/* initial: Xảy ra khi mà thằng cha ko có trùng thuộc tính thì nó sẽ lấy theo broser */
+/* initial: Xảy ra khi mà thằng cha ko có trùng thuộc tính thì nó sẽ lấy theo browser */
+/* Nếu thẻ cha không có thuộc tính color thì mặc định sẽ lấy thuộc tính color của trình duyệt */
 .three {
   color: unset;
 }

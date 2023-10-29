@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intrinsic Size</title>
+</head>
+
+<!-- Intrinsic Size: min-content, max-content, fit-content -->
+<!-- 
+    min-content: nó sẽ lấy độ rộng của chữ dài nhất làm độ rộng của thẻ 
+    VD: Ta có nội dung là Nguyễn Trung Kiên => Chữ dài nhất là chữ Nguyễn => Nó sẽ lấy độ rộng của chữ Nguyễn làm độ rộng của thẻ. Nghĩa
+    là chữ Nguyễn sẽ chiếm 1 hàng, các từ sau sẽ hiển thị với điều kiện 1 dòng có độ rộng bằng chữ Nguyễn
+-->
+<!-- 
+    max-content: nó sẽ lấy độ rộng full content
+    VD: Ta có nội dung là Nguyễn Trung Kiên => Độ rộng của thẻ sẽ chứa vừa đủ chữ Nguyễn Trung Kiên
+    Lưu ý nếu nội dung quá dài vượt qua cả width của thẻ cha thì sẽ xuất hiện scroll ngang. Nội dung sẽ không bao giờ rớt xuống hàng
+-->
+<!-- 
+    fit-content: nó sẽ lấy độ rộng full content
+    VD: Ta có nội dung là Nguyễn Trung Kiên => Độ rộng của thẻ sẽ chứa vừa đủ chữ Nguyễn Trung Kiên
+    Lưu ý nếu nội dung quá dài vượt qua cả width của thẻ cha thì sẽ rớt xuống hàng. Không xuất hiện scroll ngang
+-->
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Để có thể sử dụng margin: 0 auto => Phải sử dụng display: block chứ không thể sử dụng display: inline-block */
+    a.button {
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        padding: 20px;
+        background: yellowgreen;
+        /* width: min-content; */
+        /* width: max-content; */
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+</style>
+
+<body>
+    <a href="#" class="button">
+        Nguyễn Trung Kiên Và Mai Thị Thanh Thúy. 
+        Nguyễn Trung Kiên Và Mai Thị Thanh Thúy. 
+        Nguyễn Trung Kiên Và Mai Thị Thanh Thúy. 
+        Nguyễn Trung Kiên Và Mai Thị Thanh Thúy. 
+        Nguyễn Trung Kiên Và Mai Thị Thanh Thúy
+        Nguyễn Trung Kiên Và Mai Thị Thanh Thúy.
+    </a>
+</body>
+
+</html>

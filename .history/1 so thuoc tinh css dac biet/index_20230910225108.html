@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 số thuộc tính css đặc biệt</title>
+</head>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+          box-sizing: border-box;
+        }
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        figure,
+        picture {
+          margin: 0;
+        }
+        body {
+          min-height: 100vh;
+          line-height: 1.5;
+        }
+        input,
+        button,
+        select,
+        textarea {
+          font: inherit;
+        }
+        img,
+        picture {
+          display: block;
+          max-width: 100%;
+        }
+        /* remove animation for people who've turned them off */
+        @media (prefers-reduced-motion: reduce) {
+          *,
+          *::before,
+          *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+          }
+        }
+        
+        /* .boxed {
+            width: 100px;
+            height: 100px;
+            background-color: #6a5af9;
+            margin-inline: auto;
+        } */
+        /* margin-inline: auto; tương ứng với margin-left: auto, margin-right: auto */
+        /* margin-block: auto; tương ứng với margin-top: auto, margin-bottom: auto */
+        /* padding-inline và padding-block tương tự như margin-inline, margin-block */
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+        /* .aspect{
+            aspect-ratio: 16/9;
+        }
+
+        .aspect img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        } */
+        /*  aspect-ratio: Hỗ trợ hiển thị ảnh theo tỷ lệ */
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+        /* body {
+            background-color: yellow;
+            position: relative;
+        }
+
+        .child {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: blueviolet;
+        } */
+        /*       
+            Cách 1      
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        */
+        /*       
+            Cách 2     
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        */
+        /* 
+        - Thay cả 4 thằng top, bottom, left, right là inset: 0 (=> top right bottom left đều là 0)
+        - inset: top right bottom left
+        */
+
+        /* selectors: is và where */
+        /* div p, section p, main p,  article p {
+          font-size: 16px;
+          font-weight: 600;
+          font-style: italic;
+        } */
+    </style>
+
+<body>
+    <!-- 
+      <div class="boxed">
+        Evondev
+      </div> 
+    -->
+
+    <!-- 
+      <div class="aspect">
+        <img src="https://source.unsplash.com/random" alt=""/>
+      </div>
+    -->
+
+    <!-- <div class="child"></div> -->
+
+    <div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore beatae quia facere excepturi est dicta tempore atque voluptates molestias iure fugiat necessitatibus nisi velit libero ipsa, officia incidunt. Necessitatibus, accusantium.</p>
+    </div>
+    <section>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem temporibus praesentium illo accusantium laboriosam eveniet commodi veritatis sequi dolor! Ipsam possimus porro, dignissimos fugiat voluptatum accusamus dolore dolorem ipsum cupiditate.</p>
+    </section>
+    <main>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, a itaque quaerat dicta cum beatae accusantium omnis quam nemo eos dolores maxime asperiores fugiat placeat ullam aliquam expedita delectus! Voluptas!</p>
+    </main>
+    <article>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente quasi facilis perferendis, voluptates, sunt placeat minus id nostrum alias harum, possimus itaque obcaecati incidunt nesciunt expedita vero facere illum eius?</p>
+    </article>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canh chỉnh tỷ lệ Width Height của màn hình</title>
+</head>
+
+<style>
+    .container {
+        width: 1500px;
+        /* Luôn luôn đảm bảo width / height có tỷ lệ là 3/1 */
+        aspect-ratio: 3 / 1;
+        background-color: yellow;
+    }
+
+
+    @media screen and (max-width: 768px) {
+        .container {
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+    <!-- 
+        Ta có 1 bài toán như sau: 
+        Tôi muốn ở tất cả toàn bộ các màn hình thiết bị tỷ lệ width height luôn luôn phải là 3 / 1 
+        (Nghĩa là width của màn hình luôn lớn gấp 3 lần height của màn hình)
+        (Vd1: Nếu width là 1500px thì height sẽ là 500px (Tỷ lệ: 3/1).)
+        (Vd2: Nếu width là 1200px thì height sẽ là 400px (Tỷ lệ: 3/1).)
+        => Đảm bảo dù ở màn hình máy tính, máy tính bảng, điện thoại thì width phải luôn luôn gấp 3 lần height => Dùng aspect-ratio: 3/1
+    -->
+    <div class="container">
+
+    </div>
+</body>
+
+</html>

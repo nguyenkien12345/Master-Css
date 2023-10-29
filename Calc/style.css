@@ -1,8 +1,12 @@
 /* Ví dụ 1 */
-/* .text {
+/* Công thức tính toán line-height: Lấy line-height (trong figma/pts) chia cho font-size (trong figma/pts) */
+/* Lưu ý: cách viết công thức tính calc đúng là line-height: calc(30 / 16) (Viết cách ra tuyệt đối không viết sát liền như sau: calc(30/16) */
+/* 
+.text {
     font-size: 30px;
     line-height: calc(30 / 16);
-} */
+} 
+*/
 
 /* Ví dụ 2 */
 .layout {
@@ -15,7 +19,7 @@
 .image {
     width: 100px;
     height: 100px;
-    border-radius: 100px;
+    border-radius: 50px;
 }
 
 .image img {
@@ -23,9 +27,14 @@
     height: 100%;
     object-fit: cover;
     border-radius: inherit;
-}
+} 
 
-.content {
+.content { 
+    /* 
+    Do nội dung của class content (bên phải) quá nhiều nó sẽ khiến cho diện tích class image (bên trái) bị thu hẹp lại khiến cho nội dung
+    hiển thị bên trong của class image bị ép lại sẽ hiển thị không đẹp do không đủ chiều rộng để hiển thị
+    */
+    /* Lấy 100% - độ rộng class image => Độ rộng class content */
     width: calc(100% - 100px);
 }
 /* Lấy 100% - độ rộng ảnh => Độ rộng content */

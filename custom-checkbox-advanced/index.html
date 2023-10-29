@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Checkbox CSS Only | Styling Checkbox | CSS Tutorial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<style>
+    :root {
+        --blue: #5a5ac6;
+        --light: #bbb;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #eee;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .title {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .list {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(2, 100px);
+        gap: 20px;
+    }
+
+    input[type="checkbox"].checkbox {
+        display: none;
+    }
+
+    .list .item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--light);
+        border-radius: 10px;
+        transition: 0.5s;
+        position: relative;
+        padding: 10px;
+    }
+
+    .list .item .check {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: var(--light);
+    }
+
+    .list .item .check i:nth-child(2) {
+        display: none;
+    }
+
+    .list .item .logo-custom {
+        font-size: 33px;
+        margin-bottom: 5px;
+    }
+
+    .list .item .logo-title {
+        margin: auto;
+        font-size: 15px;
+        font-weight: 100;
+    }
+
+    /* Nếu class checkbox được checked thì các đối tượng sau sẽ bị ảnh hưởng css */
+    input[type="checkbox"].checkbox:checked + .item {
+        border: 1px solid var(--blue);
+        color: var(--blue);
+        box-shadow: 0 1px 5px var(--blue);
+    }
+
+    input[type="checkbox"].checkbox:checked + .item .check i:nth-child(1) {
+        display: none;
+    }
+
+    input[type="checkbox"].checkbox:checked + .item .check i:nth-child(2) {
+        display: block;
+        color: var(--blue);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1 class="title">nguyễn trung kiên và mai thị thanh thúy</h1>
+
+        <div class="list">
+
+            <div>
+                <input type="checkbox" id="checkbox_1" class="checkbox">
+                <label for="checkbox_1" class="item">
+                    <div class="check">
+                        <i class="fa-regular fa-circle"></i>
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <i class="fa-regular fa-chess-knight logo-custom"></i>
+                    <h2 class="logo-title">Chess</h2>
+                </label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="checkbox_2" class="checkbox">
+                <label for="checkbox_2" class="item">
+                    <div class="check">
+                        <i class="fa-regular fa-circle"></i>
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <i class="fa-regular fa-circle-play logo-custom"></i>
+                    <h2 class="logo-title">Music</h2>
+                </label>
+            </div>
+
+           <div>
+                <input type="checkbox" id="checkbox_3" class="checkbox">
+                <label for="checkbox_3" class="item">
+                    <div class="check">
+                        <i class="fa-regular fa-circle"></i>
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <i class="fa-regular fa-map logo-custom"></i>
+                    <h2 class="logo-title">Travel</h2>
+                </label>
+           </div>
+
+           <div>
+                <input type="checkbox" id="checkbox_4" class="checkbox">
+                <label for="checkbox_4" class="item">
+                    <div class="check">
+                        <i class="fa-regular fa-circle"></i>
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <i class="fa-regular fa-futbol logo-custom"></i>
+                    <h2 class="logo-title">Sport</h2>
+                </label>
+           </div>
+
+           <div>
+                <input type="checkbox" id="checkbox_5" class="checkbox">
+                <label for="checkbox_5" class="item">
+                    <div class="check">
+                        <i class="fa-regular fa-circle"></i>
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <i class="fa-regular fa-image logo-custom"></i>
+                    <h2 class="logo-title">Photo</h2>
+                </label>
+           </div>
+
+           <div>
+                <input type="checkbox" id="checkbox_6" class="checkbox">
+                <label for="checkbox_6" class="item">
+                    <div class="check">
+                        <i class="fa-regular fa-circle"></i>
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <i class="fa-regular fa-newspaper logo-custom"></i>
+                    <h2 class="logo-title">News</h2>
+                </label>
+           </div>
+
+        </div>
+    </div>    
+</body>
+
+</html>

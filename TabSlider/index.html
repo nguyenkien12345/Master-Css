@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To Make Tabs Slider Using Html Css And Javascript</title>
+</head>
+
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        min-height: 100vh;
+        background-image: linear-gradient(to bottom, #CEAFDE, #ADD8D5);  
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: #eee;
+    }
+
+    .container {
+        width: 1000px;
+        max-width: 100%;
+    }
+
+    div.slider-tabs {
+
+    }
+
+    ul.nav-tabs {
+        padding: 0;
+        /* Cách top 50px còn bottom left right là 0 */
+        margin: 50px 0px 0px;
+        list-style: none;
+        background-image: linear-gradient(to bottom right, #25AEB8, #0DDB9F);  
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        /* Có độ lớn bằng vừa với nội dung bên trong */
+        max-width: fit-content;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        overflow: hidden;
+        /* class con bg-active sẽ phụ thuộc vào class cha ul.nav-tabs */
+        position: relative;
+        z-index: 1;
+    }
+ 
+    li.nav-item {
+        font-size: 20px;
+        font-style: italic;
+        font-weight: 700;
+        text-transform: capitalize;
+        padding: 20px;
+        width: 80px;
+        text-align: center;
+        border-right: 1px solid #1d868d;
+        transition: all 0.5s;
+        cursor: pointer;
+        position: relative;
+    }
+
+    /* nth-last-child(1): đếm từ bên phải qua phần tử thứ 1 */
+    li.nav-item:nth-last-child(1) {
+        border-right: none;
+    }
+
+    li.nav-item::before {
+        content: '';
+        position: absolute;
+        left: 30%;
+        top: 75%;
+        width: 50px;
+        height: 2px;
+        background: rgb(200, 89, 89);
+        outline: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    li.nav-item.active {
+        color: #555;
+    }
+
+    li.nav-item.active::before {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .bg-active {
+        background: #eee;
+        padding: 20px;
+        width: 80px;
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        transition: all 0.5s;
+    }
+
+    div.content-tabs {
+        padding: 30px;
+        background-color: #eee;
+        color: #555;
+        border-radius: 10px;
+        border-top-left-radius: 0;
+        min-height: 300px;
+        text-align: justify;
+    }
+
+    .tab {
+        display: none;
+    }
+
+    .tab.active {
+        display: block;
+        animation: showContentTab 0.5s linear;
+    }
+
+    .tab h1 {
+        
+    }
+
+    .tab span {
+        
+    }
+
+    @keyframes showContentTab {
+        from {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    } 
+</style>
+
+<body>
+    <div class="container">
+        <div class="slider-tabs">
+            <ul class="nav-tabs">
+                <li data-target="tab1" class="nav-item active">Tab 1</li>
+                <li data-target="tab2" class="nav-item">Tab 2</li>
+                <li data-target="tab3" class="nav-item">Tab 3</li>
+                <div class="bg-active"></div>
+            </ul>
+            <div class="content-tabs">
+                <div id="tab1" class="tab active">
+                    <h1>Nguyễn Trung Kiên</h1>
+                    <span>Đây là tab nội dung của Nguyễn Trung Kiên</span>
+                </div>
+                <div id="tab2" class="tab">
+                    <h1>Mai Thị Thanh Thúy</h1>
+                    <span>Đây là tab nội dung của Mai Thị Thanh Thúy</span>
+                </div>
+                <div id="tab3" class="tab">
+                    <h1>Ngô Nguyễn Phong My</h1>
+                    <span>Đây là tab nội dung của Ngô Nguyễn Phong My</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-tabs">
+            <ul class="nav-tabs">
+                <li data-target="tab4" class="nav-item active">Tab 4</li>
+                <li data-target="tab5" class="nav-item">Tab 5</li>
+                <li data-target="tab6" class="nav-item">Tab 6</li>
+                <div class="bg-active"></div>
+            </ul>
+            <div class="content-tabs">
+                <div id="tab4" class="tab active">
+                    <h1>Nguyễn Hồng Quân</h1>
+                    <span>Đây là tab nội dung của Nguyễn Hồng Quân</span>
+                </div>
+                <div id="tab5" class="tab">
+                    <h1>Nguyễn Đức Công Khoa</h1>
+                    <span>Đây là tab nội dung của Nguyễn Đức Công Khoa</span>
+                </div>
+                <div id="tab6" class="tab">
+                    <h1>Lê Thanh Phong</h1>
+                    <span>Đây là tab nội dung của Lê Thanh Phong</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const sliderTabs = document.querySelectorAll('.slider-tabs');
+
+    sliderTabs.forEach(function(sliderTab, index) {
+        sliderTab.addEventListener('click', changeTab);
+    });
+
+    function changeTab(event) {
+        // Kiểm tra đối tượng đang được click (event.target) có chứa class nav-item không
+        if(event.target.classList.contains('nav-item')) {
+            const oldActiveTab = this.querySelector('.nav-item.active');
+            const newActiveTab = event.target;
+            const bgActive = this.querySelector('.bg-active');
+
+            oldActiveTab.classList.remove('active');
+            newActiveTab.classList.add('active');
+            bgActive.style.left = newActiveTab.offsetLeft + 'px';
+
+            const oldActiveTabContent = this.querySelector('.tab.active');
+            const newActiveTabContent = document.getElementById(newActiveTab.dataset.target);
+            oldActiveTabContent.classList.remove('active');
+            newActiveTabContent.classList.add('active');
+        }   
+    }
+</script>
+
+</html>
