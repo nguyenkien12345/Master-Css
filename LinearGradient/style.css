@@ -41,7 +41,7 @@ body {
 
 /* .boxed {
   height: 200px;
-  background-image: linear-gradient(to right, #ffa400 30%, #00aefd 50%);  Lưu ý % bên tay phải lúc nào cũng phải nhỏ hơn % bên tay trái (không đuọc lớn hơn hoặc bằng)  
+  background-image: linear-gradient(to right, #ffa400 30%, #00aefd 50%);  Lưu ý % bên tay phải lúc nào cũng phải lớn hơn % bên tay trái (không đuọc nhỏ hơn hoặc bằng)  
 } */
 
 .images {
@@ -55,6 +55,10 @@ body {
   border-radius: 5px;
   position: relative;
 }
+
+/* Không nên dùng border (vì border nằm trong box-sizing nên khi chúng ta thêm border vào thì nó sẽ ảnh hưởng đến width của từng item) */
+
+/* Đường line căng ngang */
 .images:before {
   content: "";
   height: 1px;
@@ -65,6 +69,8 @@ body {
   left: 0;
   transform: translateY(-50%);
 }
+
+/* Đường line căng dọc của tửng phần tử */
 .images:after {
   content: "";
   position: absolute;
@@ -72,21 +78,34 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  border-radius: inherit;
+  /* inherit: kế thừa css class cha là thẻ images */
+  border-radius: inherit; 
   --dir: to right;
   background-image: linear-gradient(
     var(--dir),
+    /* Tại thời điểm từ 0 đến 25% là không có màu gì cả (transparent) */
     transparent 25%,
+    /* Tại thời điểm 25% mình cho màu trắng và cho width là 2 */
     white calc(25% + 2px),
+    /* Từ thời điểm 25% đổ đi mình để màu transparent */
     transparent calc(25% + 2px),
+    
+     /* Tại thời điểm từ 50% đến 100% là không có màu gì cả (transparent) */
     transparent 50%,
+    /* Tại thời điểm 50% mình cho màu trắng và cho width là 2 */
     white calc(50% + 2px),
+     /* Từ thời điểm 50%% đổ đi mình để màu transparent */
     transparent calc(50% + 2px),
+
+     /* Tại thời điểm từ 75% đến 100% là không có màu gì cả (transparent) */
     transparent 75%,
+    /* Tại thời điểm 75% mình cho màu trắng và cho width là 2 */
     white calc(75% + 2px),
+     /* Từ thời điểm 75%% đổ đi mình để màu transparent */
     transparent calc(75% + 2px)
   );
 }
+
 .image-item {
   padding: 20px;
   display: flex;

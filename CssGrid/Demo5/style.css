@@ -1,0 +1,297 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-size: 15px;
+    font-family: system-ui;
+}
+
+.container {
+    width: 1200px;
+    height: auto;
+    margin: 50px auto;
+}
+
+.list-products {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 20px 20px;
+}
+
+.product-item {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: #e5e5e5;
+    /*  */
+    opacity: 0;
+}
+
+.product-item .product-image {
+    padding: 10px;
+}
+
+.product-item .product-content {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.product-item .product-content .content-top {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 0.3px;
+}
+
+.product-item .product-content .content-top .product-title {
+    color: red;
+    font-size: 18px;
+    font-weight: 700;
+    /* Hiển thị dấu 3 chấm nếu nội dung quá dài */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;     
+}
+
+.product-item .product-content .content-top .product-desc {
+    margin: 10px 0px;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.product-item .product-content .content-top .product-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 15px;
+    padding: 0 10px;
+}
+
+.product-item .product-content .content-top .product-price .old-price {
+    color: green;
+    opacity: 0.8;
+}
+
+.product-item .product-content .content-top .product-price .new-price {
+    color: blue;
+    font-weight: 600;
+}
+
+.product-item .product-content .content-bottom {
+    margin-top: 20px;
+}
+
+.product-item .product-content .content-bottom .btn-checkout{
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    opacity: 0.8;
+    background-color: yellow;
+    box-shadow: 2px 2px 5px 3px #000;
+}
+
+input[name="grid"] {
+    display: none;
+}
+
+.list-filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+
+.list-filters label {
+    margin: 0px 0px 5px;
+    background-color: #e5e5e5;
+    display: inline-block;
+    padding: 10px;
+    width: 70px;
+    text-align: center;
+}
+
+.list-filters label img {
+    width: 30px;
+}
+
+/* Bắt đầu Responsive layouts Using CSS Grid | CSS3 Grid */
+
+/* Lưu ý với dấu ~ nghĩa là khi thẻ input có name là grid được click thì thẻ list-products phải ngang hàng cùng cấp thì mới apply css được */
+
+/* Nếu mà cái thẻ input có name là grid và có value là 1 được checked thì ta sẽ thay đổi css của thằng list-products */
+input[name="grid"][value="1"]:checked ~ .list-products {
+    grid-template-columns: auto;
+}
+
+/* Nếu mà cái thẻ input có name là grid và có value là 2 được checked thì ta sẽ thay đổi css của thằng list-products */
+input[name="grid"][value="2"]:checked ~ .list-products {
+    grid-template-columns: auto auto;
+}
+
+/* Nếu mà cái thẻ input có name là grid và có value là 3 được checked thì ta sẽ thay đổi css của thằng list-products */
+input[name="grid"][value="3"]:checked ~ .list-products {
+    grid-template-columns: auto auto auto;
+}
+
+/* Nếu mà cái thẻ input có name là grid và có value là 4 được checked thì ta sẽ thay đổi css của thằng list-products */
+input[name="grid"][value="4"]:checked ~ .list-products {
+    grid-template-columns: auto auto auto auto;
+}
+
+
+input[name="grid"][value="1"]:checked ~ .list-filters label[for="grid-1"],
+input[name="grid"][value="2"]:checked ~ .list-filters label[for="grid-2"],
+input[name="grid"][value="3"]:checked ~ .list-filters label[for="grid-3"],
+input[name="grid"][value="4"]:checked ~ .list-filters label[for="grid-4"]
+{
+  background-color: #ECD0AD;
+}
+
+/* 
+Do ta đặt mỗi thằng chỉ được chạy 1 lần duy nhất nên ta bắt buộc phải viết 4 cái @keyframes mặc dù css giống hệt nhau 
+Vì mới đầu vào nó chạy cái @keyframes rùi thì khi click những thằng khác do trùng tên keyframes nên nó nhận thấy không có sự
+thay đổi nên sẽ không ăn. Do đó nếu ta đặt 4 cái tên khác nhau thì mặc định mỗi lần click thì tự động nó sẽ apply keyframes do 
+mỗi lần click là 1 tên khác nhau
+*/
+@keyframes effectChangeGrid1 {
+    from {
+        opacity: 0;
+        /* Mặc định ban đầu x bị dịch sang phải 10px, y bị thụt xuống dưới 10px */
+        transform: translate(-10px, 10px); 
+    }
+    to {
+        opacity: 1;
+        /* Trả về vị trí gốc như chưa từng thay đổi */
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes effectChangeGrid2 {
+    from {
+        opacity: 0;
+        /* Mặc định ban đầu x bị dịch sang phải 10px, y bị thụt xuống dưới 10px */
+        transform: translate(-10px, 10px); 
+    }
+    to {
+        opacity: 1;
+        /* Trả về vị trí gốc như chưa từng thay đổi */
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes effectChangeGrid3 {
+    from {
+        opacity: 0;
+        /* Mặc định ban đầu x bị dịch sang phải 10px, y bị thụt xuống dưới 10px */
+        transform: translate(-10px, 10px); 
+    }
+    to {
+        opacity: 1;
+        /* Trả về vị trí gốc như chưa từng thay đổi */
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes effectChangeGrid4 {
+    from {
+        opacity: 0;
+        /* Mặc định ban đầu x bị dịch sang phải 10px, y bị thụt xuống dưới 10px */
+        transform: translate(-10px, 10px); 
+    }
+    to {
+        opacity: 1;
+        /* Trả về vị trí gốc như chưa từng thay đổi */
+        transform: translate(0, 0);
+    }
+}
+
+/* Nếu mà cái thẻ input có name là grid và có value là 1 được checked thì ta sẽ thay đổi css của thằng list-products .product-item */
+input[name="grid"][value="1"]:checked ~ .list-products .product-item {
+    display: flex;
+    flex-direction: row;
+    animation: effectChangeGrid1 1s ease-in-out 1 forwards;
+}
+
+/* Nếu mà cái thẻ input có name là grid và có value là 2 được checked thì ta sẽ thay đổi css của thằng list-products .product-item */
+input[name="grid"][value="2"]:checked ~ .list-products .product-item {
+    display: flex;
+    flex-direction: row;
+    animation: effectChangeGrid2 1s ease-in-out 1 forwards;
+}
+
+
+input[name="grid"][value="1"]:checked ~ .list-products .product-item .product-image,
+input[name="grid"][value="2"]:checked ~ .list-products .product-item .product-image
+{
+    width: 50%;
+}
+
+input[name="grid"][value="1"]:checked ~ .list-products .product-item .product-content,
+input[name="grid"][value="2"]:checked ~ .list-products .product-item .product-content
+{
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+input[name="grid"][value="1"]:checked ~ .list-products .product-item
+{
+    justify-content: space-between;
+}
+
+/* Nếu mà cái thẻ input có name là grid và có value là 3 được checked thì ta sẽ thay đổi css của thằng list-products .product-item */
+input[name="grid"][value="3"]:checked ~ .list-products .product-item {
+    animation: effectChangeGrid3 1s ease-in-out 1 forwards;
+}
+
+/* Nếu mà cái thẻ input có name là grid và có value là 4 được checked thì ta sẽ thay đổi css của thằng list-products .product-item */
+input[name="grid"][value="4"]:checked ~ .list-products .product-item {
+    animation: effectChangeGrid4 1s ease-in-out 1 forwards;
+}
+
+.list-products .product-item:nth-child(2){
+    animation-delay: 0.2s !important;
+}
+.list-products .product-item:nth-child(3){
+    animation-delay: 0.4s !important;
+}
+.list-products .product-item:nth-child(4){
+    animation-delay: 0.6s !important;
+}
+.list-products .product-item:nth-child(5){
+    animation-delay: 0.8s !important;
+}
+.list-products .product-item:nth-child(6){
+    animation-delay: 1s !important;
+}
+.list-products .product-item:nth-child(7){
+    animation-delay: 1.2s !important;
+}
+.list-products .product-item:nth-child(8){
+    animation-delay: 1.4s !important;
+}
+
+
+

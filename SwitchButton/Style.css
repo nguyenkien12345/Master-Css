@@ -25,11 +25,12 @@ body{
     border: mediumaquamarine;
 }
 
-.switch::before{
+.switch::before {
     content: '';
     width: 42px;
     height: 42px;
-    position: absolute; /* Căn chỉnh theo thằng cha của nó */
+    position: absolute; 
+    /* Căn chỉnh theo thằng cha của nó */
     background-color: #fff;
     border-radius: 50%;
     left: 0px;
@@ -37,6 +38,9 @@ body{
     transition: 200ms;
 }
 
-.switch:checked:before{ /* Cái class này khi mà được bật lên thì nó sẽ tác động vào phần tử trong nó */
-    left: 42px; /* Dịch chuyển qua bên trái */
+.switch:checked:before {
+    /* Cái class này khi mà được bật lên thì nó sẽ tác động vào phần tử trong nó */
+    left: 42px;
+    /* Dịch chuyển qua bên trái */
 }
+
