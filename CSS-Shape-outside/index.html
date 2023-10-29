@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Shape Outside</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Nếu chúng ta muốn có nhiều hình để thực hành với CSS Shape Outside thì chúng ta sẽ vào trang clippy  */
+    .box .element {
+        width: 300px;
+        height: 300px;
+        background: yellow;
+        float: left;
+        /* Ví dụ với hình tròn */
+        /* shape-outside: circle(50%); */ /* Sử dụng để xác định hình dạng của vùng xung quanh phần tử. làm cho vùng xung quanh phần tử .element trở thành một hình tròn với bán kính 50%. Điều này sẽ làm cho văn bản xung quanh phần tử tránh đi một vùng tròn có bán kính 50% xung quanh phần tử. */
+        /* border-radius: 50%; */
+        
+        /* Ví dụ với hình ellipse */
+        /* shape-outside: ellipse(25% 40% at 50% 50%); */
+        /* clip-path: ellipse(25% 40% at 50% 50%); */
+
+        /* Ví dụ với hình tam giác */
+        shape-outside: polygon(0 0, 0% 100%, 100% 100%); 
+        clip-path: polygon(0 0, 0% 100%, 100% 100%); 
+        margin-right: 50px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="element">
+            <img src="https://source.unsplash.com/random" alt="">
+        </div>
+        <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, exercitationem, quod quis aut laudantium esse sint minima delectus tempora quisquam doloremque qui, ex quibusdam hic tempore ab maxime eius porro!
+        Nihil laudantium numquam facilis voluptate sunt, minus in qui cupiditate animi labore ad fuga, molestias ullam atque possimus maxime a pariatur expedita debitis! A qui vero laboriosam architecto aut laborum?
+        Nostrum, et. Debitis, eos quis. Modi vitae ratione dolorum nostrum hic aliquam dolores inventore deleniti quas architecto porro totam laboriosam dolore iusto in suscipit minima explicabo, a accusantium deserunt aperiam.
+        Consectetur possimus, quaerat repellendus nobis, nemo voluptatem, impedit dignissimos dicta fuga rerum commodi fugit. Corporis impedit animi reprehenderit, saepe, quis atque magni consequuntur commodi explicabo aperiam, at facilis nemo aspernatur.
+        Nesciunt quaerat dolore, sequi nemo nam quidem quibusdam sit rerum. Qui, adipisci! Autem, animi. Officiis, sunt inventore! Minus, molestias voluptates reprehenderit dolores minima vitae voluptatum cumque neque repellat deleniti. Tempora.
+        Dolor illo ullam omnis voluptate reiciendis soluta corporis ipsam eaque dolores earum animi optio, mollitia obcaecati libero modi accusantium in error alias possimus nulla vel quas iste consequatur officia. Quod!
+        Qui magnam distinctio itaque error optio sunt beatae consequatur explicabo quod ullam. Cumque ab saepe eius repellendus. Velit dolore odit sed perferendis, repellat laboriosam officiis atque hic ipsum, accusantium dolores?
+        Atque aliquid rerum eius nemo, repellendus consequatur quod sapiente placeat tenetur, et facilis, maiores amet odio aut! Sit, officiis! Mollitia culpa dolorem accusamus rerum, eum nam corrupti assumenda quisquam et.
+        Dolorem, magni aperiam, ab consequuntur qui, blanditiis explicabo adipisci mollitia delectus minima aspernatur ipsam eaque nulla officiis ad impedit id repudiandae sunt esse sed amet excepturi modi! Mollitia, eaque temporibus.
+        Doloremque quos assumenda labore quo quisquam earum ipsum, debitis exercitationem animi necessitatibus sit dolorum, quis error! Nihil dolor similique et natus nulla magni rem beatae ipsa eveniet, nemo incidunt pariatur?
+        </p>
+    </div>
+</body>
+
+</html>
