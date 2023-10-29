@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo hiệu ứng xem thêm và ẩn bớt với css</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-image: radial-gradient(#b308b6, #2f144c); /* Chuyển màu từ trung tâm cho đến ngoài viền */
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #2f144c;
+        color: #eee;
+        padding: 20px 40px;
+        font-family: monospace;
+    }
+
+    .box input[name="readmore"] {
+        display: none;
+    }
+
+    .box .content h1 {
+        text-align: center;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+
+    .box .content .desc {
+        text-align: justify;
+        max-height: 150px;
+        overflow: hidden;
+        position: relative;
+        transition: 0.5s ease-in-out;
+    }
+
+    .box .content .desc::before {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-image: linear-gradient(to top, #2f144c, transparent);
+        transition: 0.5s ease-in-out;
+    }
+
+    .box .content .button {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .box .content label {
+        display: inline-block;
+        text-align: center;
+        border: 1px solid #000;
+        width: 150px;
+        height: 50px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .box .content label::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: attr(data-more);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box input[name="readmore"]:checked ~ .content label::before  {
+        content: attr(data-less);
+    }
+
+    .box input[name="readmore"]:checked ~ .content .desc  {
+        max-height: 100%;
+    }
+
+    .box input[name="readmore"]:checked ~ .content .desc::before {
+        height: 0;
+    }
+
+    .content {
+        position: relative;
+    }
+
+    .content::before {
+        position: absolute;
+        bottom: 50px;
+        right: 5px;
+        width: 50px;
+        height: 70px;
+        content: '';
+        background-image: url(img1.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        z-index: 1;
+        transition: 2s ease-in-out;
+    }
+
+    .box input[name="readmore"]:checked ~ .content::before {
+        bottom: 80%;
+        right: 100%;
+        transform: rotate(-50deg);
+    }
+
+
+</style>
+
+<body>
+    <div class="box">
+        <input type="checkbox" name="readmore" id="readmore"/>
+
+        <div class="content">
+            <h1>Nguyễn Trung Kiên Và Mai Thị Thanh Thúy</h1>
+            <div class="desc">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum esse voluptates aliquam. Magni, aut distinctio impedit laboriosam aperiam ab molestiae ut saepe dolor pariatur quam nemo dolore amet mollitia voluptatem nam dolorem neque libero aspernatur quasi eveniet esse voluptates! Perferendis vel delectus tempore repudiandae mollitia architecto molestiae? 
+                Rerum dolores dolorem repudiandae, quos hic non iste doloribus quasi expedita alias ipsam ea quae dignissimos eligendi molestias temporibus quibusdam explicabo assumenda enim! Dolor inventore facilis exercitationem. Numquam asperiores consequuntur est, sunt reiciendis vel temporibus eveniet deleniti autem commodi doloribus sequi repudiandae sapiente libero, ab, atque excepturi explicabo illo velit dolorum mollitia.
+                Quas amet possimus dolorum, ipsa dolore nihil tenetur optio ratione voluptatibus quibusdam a fugit minima dolorem sint iure incidunt error. Illum, dicta iusto reiciendis adipisci dolores sunt est doloribus cumque! Mollitia totam officiis, accusantium numquam repellendus ad assumenda asperiores rerum a! Earum aut eum debitis repellat corrupti cupiditate consectetur ullam reprehenderit quia et, blanditiis voluptatum quae ipsum odio molestias, dicta dolor aliquid tempore recusandae. 
+                Distinctio eligendi, quos totam voluptatum maiores aut dolorem ullam, atque ipsam cum quod non quaerat soluta eos unde aperiam dolores excepturi voluptates recusandae sint dolore. 
+                Sunt maxime tempore cumque sequi nostrum, inventore laboriosam nulla. Repellendus, eos corrupti?
+            </div>
+            <div class="button">
+                <label for="readmore" data-more="READ MORE" data-less="READ LESS"></label>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
