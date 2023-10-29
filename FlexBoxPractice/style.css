@@ -40,7 +40,7 @@ body {
 
 .cards {
   --spacing: 30px;
-  --columns: 2;
+  --columns: 4;
   display: flex;
   flex-wrap: wrap;
   margin-left: calc(-1 * var(--spacing));
@@ -49,11 +49,11 @@ body {
 }
 
 .card {
+  overflow: hidden;
   border-radius: 20px;
   background-color: white;
-  overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  width: calc(calc(100 / var(--columns)) - var(--spacing));
+  width: calc(calc(100% / var(--columns)) - var(--spacing));
   /* Dàn layout cột linh động */
   /* 4 card mỗi cột 25% thì cộng lại sẽ ra 100% mà cộng thêm margin left 30px thì sẽ ra là lớn hơn 100% làm cột rớt xuống dòng tiếp theo. 
   Vì vậy ta phải dùng calc trừ khoảng trống đó đi */
