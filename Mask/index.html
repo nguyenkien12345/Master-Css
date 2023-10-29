@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuộc tính Mask trong CSS</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        height: 100vh;
+    }
+
+    .mask {
+        width: 100%;
+        height: 100vh;
+        -webkit-mask-image: url(mask.png);
+        -webkit-mask-size: auto 100%; 
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+    }
+
+    .mask img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<body>
+    <div class="mask">
+        <img src="img.png">
+    </div>
+</body>
+
+</html>
+
+<!-- Mask là một lớp mặt nạ layer được sử dụng trong CSS để đè lên một phần tử nào đó nhằm ẩn đi một phần hoặc toàn bộ các nội dung bên trong phần tử. -->
+<!-- Lưu ý khi sử dụng: Hầu hết trên tất cả trình duyệt, khi sử dụng Mask CSS bạn cần thêm tiền tố -webkit-. -->
+

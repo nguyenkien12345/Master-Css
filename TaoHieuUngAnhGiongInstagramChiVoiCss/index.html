@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo Hiệu Ứng Ảnh Giống Instagram Chỉ Bằng CSS</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: azure;
+        font-size: xx-large;
+    }
+
+    .container {
+        width: max-content;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding-bottom: 20px;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .container img {
+        display: block;
+        width: 300px;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .container img.filter {
+        filter: 
+        brightness(120%) /* Điều chỉnh độ sáng của phần tử */
+        contrast(90%)    /* Điều chỉnh độ tương phản của phần tử */
+        saturate(220%)   /* Tăng độ bão hòa màu sắc của phần tử */
+        sepia(15%);      /* Làm cho màu sắc trở nên ấm áp và cổ điển hơn */
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div>Before</div>
+        <div>After</div>
+        <img src="./mttt.jpg" alt="">
+        <img src="./mttt.jpg" alt="" class="filter">
+    </div>
+</body>
+
+</html>
