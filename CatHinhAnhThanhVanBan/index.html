@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cắt Hình Ảnh Thành Văn Bản</title>
+</head>
+
+<style>
+    *,
+    *::after,
+    *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        background: #000;
+    }
+
+    .box {
+        width: 500px;
+        height: 500px;
+        position: relative;
+    }
+
+    /* Cả 2 class left và right đều sẽ hiển thị full khuôn mặt nhân vật */
+    .box .left,
+    .box .right {
+        width: 100%;
+        height: 100%;
+        background-image: url(image.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    /* Hiển thị 1 nữa khuôn mặt nhân vật */
+    .box .left {
+        clip-path: polygon(
+            0 0, 50% 0,
+            50% 100%, 0 100%
+        );
+    }
+
+    /* Cho nội dung đoạn text chỉ chiếm 50% (1 nữa khuôn mặt nhân vật) */
+    .box .right .content {
+        width: 50%;
+    }
+
+    /* Cho nội dung đoạn text nằm bên phải khuôn mặt nhân vật */
+    .box .right {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        font-family: monospace;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 95%;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        /* 
+        -webkit-background-clip: xác định khu vực mà background của phần tử sẽ được vẽ
+        Giá trị text chỉ định rằng hình nền sẽ chỉ được vẽ trong phần văn bản của phần tử
+         */
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    /* Cho cả 2 class left và right cùng nằm lên nhau (Vì left chỉ hiển thị mỗi khuôn mặt. Còn right chỉ hiển thị mỗi nội dung)  */
+    .box .left,
+    .box .right {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="left"></div>
+        <div class="right">
+            <p class="content">Nguyễn Trung Kiên và tình yêu to lớn dành cho câu lạc bộ LIVERPOOL FC. Mãi mãi mang trong mình dòng máu quỷ đỏ</p>
+        </div>
+    </div>
+</body>
+</html>

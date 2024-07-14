@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw Pie Chart Using Css Only</title>
+</head>
+
+<style>
+    *, 
+    *::after,
+    *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+    }
+
+    /* 
+    Phần đầu 1 của chart: Kỹ năng design   chiếm 30% => Từ 0   đến 30%    => Tổng biểu đồ hiện tại là 30%  (0+30)
+    Phần thứ 2 của chart: Kỹ năng frontend chiếm 25% => Từ 30% đến 55%    => Tổng biểu đồ hiện tại là 55%  (30+25)
+    Phần thứ 3 của chart: Kỹ năng backend  chiếm 25% => Từ 55% đến 80%    => Tổng biểu đồ hiện tại là 80%  (55+25)
+    Phần thứ 4 của chart: Kỹ năng devops   chiếm 20% => Từ 80% đến 100%   => Tổng biểu đồ hiện tại là 100% (80+20)
+    */
+    .chart {
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: conic-gradient(
+            yellow 0% var(--design),
+            red var(--design) calc(var(--design) + var(--frontend)),
+            blue calc(var(--design) + var(--frontend)) calc(var(--design) + var(--frontend) + var(--backend)),
+            green calc(var(--design) + var(--frontend) + var(--backend)) 100%
+        );
+    }
+</style>
+
+<body>
+    <div class="chart"
+        style="
+        --design: 30%;
+        --frontend: 25%;
+        --backend: 25%;
+        --devops: 20%;
+    ">
+    </div>
+</body>
+</html>

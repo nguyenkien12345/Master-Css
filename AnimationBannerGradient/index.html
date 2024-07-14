@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Banner Background Gradient</title>
+</head>
+
+<style>
+    *,
+    *::after,
+    *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --dark: #19283B;
+        --light:  #B8B9C1;
+    }
+
+    body {
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       font-size: 15px;
+    }
+
+    nav {
+        width: 80%;
+        margin: auto;
+    }
+
+    nav .list-menu {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    nav .list-menu li {
+        font-weight: 500;
+        padding: 8px 12px;
+        margin-left: 50px;
+    }
+
+    nav .list-menu li.active {
+        color: var(--light);
+    }
+
+    /* Định nghĩa thuộc tính CSS tùy chỉnh. */
+    /* --rotate là tên của thuộc tính tùy chỉnh mà chúng ta đang định nghĩa. */
+    /* 
+        syntax: xác định cú pháp của giá trị mà thuộc tính tùy chỉnh này có thể nhận 
+        <angle> có nghĩa là thuộc tính --rotate chỉ có thể nhận giá trị góc, chẳng hạn như 0deg, 45deg, 90deg, v.v.
+    */
+    /* 
+        initial-value đặt giá trị mặc định cho thuộc tính --rotate khi nó không được chỉ định rõ ràng trong CSS
+    */
+    /* 
+        inherits: true; Nếu phần tử con không có giá trị cụ thể cho --rotate, nó sẽ thừa kế giá trị từ phần tử cha. 
+    */
+    @property --rotate {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: true;
+    }
+
+    .banner {
+        position: relative;
+        height: 100vh;
+        background-image: conic-gradient(
+            from var(--rotate),
+            var(--dark),
+            var(--light) 60%
+        );
+        /* Nằm đè lên trên thẻ nav (Vì chiều cao của thẻ nav là 50px) */
+        margin-top: -50px;
+        /* Cho thẻ nav hiển thị nội dung đè lên */
+        z-index: -1;
+        animation: rotateAnimation 5s linear infinite;
+    }
+
+    .banner .content {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        width: 33%;
+    }
+
+    .banner .content h1 {
+        font-size: xxx-large;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 110%;
+        margin: 0;
+    }
+
+    .banner .content .desc {
+        font-size: 16px;
+        line-height: 135%;
+        color: #2c3e50;
+    }
+
+    .banner .content button {
+        height: 50px;
+        width: 200px;
+        border-radius: 10px;
+        background-color: var(--light);
+        text-align: center;
+        font-weight: 700;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        margin-block: 20px;
+    }
+
+    .banner .content .statis {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 50px;
+    }
+
+    .banner .content .statis .item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .banner .content .statis .item p:nth-child(1) {
+        font-size: x-large;
+        font-weight: 500;
+    }
+
+    .banner .content .statis .item p:nth-child(2) {
+        font-size: xxx-large;
+        font-weight: 600;
+    }
+
+    @keyframes rotateAnimation {
+        from {
+            --rotate: 0deg;
+        }
+        to {
+            --rotate: -360deg;
+        }
+    }
+</style>
+
+<body>
+    <nav>
+        <ul class="list-menu">
+            <li class="active">Home</li>
+            <li>Product</li>
+            <li>Info</li>
+            <li>Contact</li>
+            <li>Login</li>
+        </ul>
+    </nav>
+
+    <div class="banner">
+        <div class="content">
+            <h1>WELCOME TO NTK CHANNEL</h1>
+            <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, sequi incidunt nemo quo molestiae assumenda, corrupti facilis numquam velit veniam, fugit exercitationem. Unde, doloribus iure repellat molestias veniam reprehenderit a!</p>
+            <button>Subcribe Now</button>
+            <div class="statis">
+                <div class="item">
+                    <p>Subcribes</p>
+                    <p>5.000</p>
+                </div>
+                <div class="item">
+                    <p>Views</p>
+                    <p>120K</p>
+                </div>
+                <div class="item">
+                    <p>Likes</p>
+                    <p>8.200</p>
+                </div>
+                <div class="item">
+                    <p>Comments</p>
+                    <p>10k</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
